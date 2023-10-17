@@ -17,25 +17,31 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_17_162706) do
   create_table "campaigns", force: :cascade do |t|
     t.string "title", null: false
     t.float "estimated_duration", null: false
+    t.bigint "expert_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["expert_id"], name: "index_campaigns_on_expert_id"
   end
 
   create_table "tags", force: :cascade do |t|
     t.string "title", null: false
     t.bigint "campaign_id"
+    t.bigint "expert_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["campaign_id"], name: "index_tags_on_campaign_id"
+    t.index ["expert_id"], name: "index_tags_on_expert_id"
   end
 
   create_table "todos", force: :cascade do |t|
     t.string "content", null: false
     t.boolean "done", default: false
     t.bigint "campaign_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["campaign_id"], name: "index_todos_on_campaign_id"
+    t.index ["user_id"], name: "index_todos_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
