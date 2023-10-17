@@ -1,0 +1,11 @@
+test:
+  username: test
+  email: test@mail.com
+  encrypted_password: azerty
+  status: "qualified"
+
+toto:
+  username: Toto
+  email: toto@mail.com
+  encrypted_password: azerty
+  status: "not_qualified"

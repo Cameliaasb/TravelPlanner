@@ -4,9 +4,7 @@ class UserTest < ActiveSupport::TestCase
   # A user with type ‘Novice’ has “email, password, username and status” as attributes.
   # A user of type ‘Expert’ has “email, password, username, status, profession, and service”.
   # The status attribute can have three different data values of “:qualified, :not_qualified,
-  # :banned” .
-  # ( hint​: We can have other user types, so minimize the use of db space as far as possible)
-  # The status of the ‘Novice’ user can only be changed by the ‘Expert’.
+  # :banned”
 
   test "users must have attributes" do
     user = User.new
@@ -18,9 +16,9 @@ class UserTest < ActiveSupport::TestCase
     assert_respond_to user, :type, "User model should respond to 'type'"
   end
 
-  test "A user has a username" do
-    user = User.new
-    assert_respond_to user, :username, "User model should respond to 'type'"
+  test "A user must have a valid status" do
+    user = users(:test)
+    user.status = "invalid status"
+    assert_not user.valid?, "User status should be valid"
   end
-
 end
