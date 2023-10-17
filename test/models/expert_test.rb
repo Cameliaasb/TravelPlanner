@@ -14,8 +14,6 @@ class ExpertTest < ActiveSupport::TestCase
 
   test "User is Expert if type is Expert" do
     expert = users(:toto)
-    # expert.profession = "Testor"
-    # expert.service = "IT"
     assert_equal Expert, expert.class, "User should become an instance of Expert"
     assert_not expert.valid?, "Expert should have profession and service attributes"
   end
