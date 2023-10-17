@@ -25,6 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_17_142503) do
     t.string "type", default: "Novice"
     t.string "username", null: false
     t.string "status", null: false
+    t.string "profession"
+    t.string "service"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
