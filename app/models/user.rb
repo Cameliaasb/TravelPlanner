@@ -8,4 +8,5 @@ class User < ApplicationRecord
   validates :status, inclusion: { in: STATUS }
 
   has_many :todos
+  has_many :campaigncomments
 end

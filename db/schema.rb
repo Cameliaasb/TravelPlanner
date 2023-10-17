@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_17_162706) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_17_164503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "campaigncomments", force: :cascade do |t|
+    t.string "title", null: false
+    t.bigint "campaign_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_campaigncomments_on_campaign_id"
+    t.index ["user_id"], name: "index_campaigncomments_on_user_id"
+  end
 
   create_table "campaigns", force: :cascade do |t|
     t.string "title", null: false
@@ -61,4 +71,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_17_162706) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "campaigncomments", "campaigns"
+  add_foreign_key "campaigncomments", "users"
 end
