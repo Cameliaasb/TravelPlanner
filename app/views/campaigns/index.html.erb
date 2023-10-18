@@ -2,7 +2,14 @@
   <div class="campaign">
     <div class="title"> <%= campaign.title %> </div>
     <div class="duration">  <%= campaign.estimated_duration %>  </div>
+
+    <div class="tags">
+      <% campaign.tags.each do |tag| %>
+        <%= tag.title  %>
+      <% end%>
+    </div>
   </div>
+
 <% end %>
 
 <% if current_user.instance_of?(Expert) %>

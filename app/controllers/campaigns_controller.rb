@@ -9,6 +9,8 @@ class CampaignsController < ApplicationController
 
   def show
     @campaign = Campaign.find(params[:id])
+    @tag = Tag.new
+    @owner = (current_user == @campaign.expert)
   end
 
   def create

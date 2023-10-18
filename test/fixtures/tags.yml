@@ -1,0 +1,8 @@
+tag_one:
+  title: tag_one
+  expert: toto
+  campaign: foo
+tag_two:
+  title: tag_two
+  expert: tata
+  campaign: bar

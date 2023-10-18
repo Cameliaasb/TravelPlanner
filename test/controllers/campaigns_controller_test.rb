@@ -14,8 +14,13 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
     assert_select "div.campaign" do
       assert_select "div.title", @campaign.title
       assert_select "div.duration", @campaign.estimated_duration.to_s
+      assert_select "div.tags", @campaign.tags.first.title
+      assert_select "div.tags", @campaign.tags.last.title
+
       assert_select "div.title", @campaign_two.title
       assert_select "div.duration", @campaign_two.estimated_duration.to_s
+      assert_select "div.tags", @campaign_two.tags.first.title
+      assert_select "div.tags", @campaign_two.tags.last.title
     end
   end
 
