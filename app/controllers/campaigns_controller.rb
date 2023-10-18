@@ -4,14 +4,11 @@ class CampaignsController < ApplicationController
 
   def index
     @campaigns = Campaign.all
+    @campaign = Campaign.new
   end
 
   def show
     @campaign = Campaign.find(params[:id])
-  end
-
-  def new
-    @campaign = Campaign.new
   end
 
   def create
@@ -22,11 +19,6 @@ class CampaignsController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  def edit
-    # should only be for owner of campaign
-    @campaign = Campaign.find(params[:id])
   end
 
   def update

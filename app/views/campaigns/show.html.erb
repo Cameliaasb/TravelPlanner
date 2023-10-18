@@ -1,0 +1,13 @@
+<div class="big-title"> <%= @campaign.title %> </div>
+<div class="duration">  <%= @campaign.estimated_duration %>  </div>
+
+<% if @campaign.expert == current_user %>
+  <div class="form-container">
+    <%= render "form", campaign: @campaign %>
+  </div>
+
+  <%= link_to "Delete",
+    campaign_path(@campaign),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+<% end %>

@@ -22,11 +22,8 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
   test "should show one campaign" do
     get campaign_url(@campaign)
     assert_response :success
-  end
-
-  test "should get new - form to create a campaign" do
-    get new_campaign_url
-    assert_response :success
+    assert_select "div.big-title", @campaign.title
+    assert_select "div.duration", @campaign.estimated_duration.to_s
   end
 
   test "should successfuly create campaign" do
@@ -35,11 +32,6 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to campaign_url(Campaign.last)
-  end
-
-  test "should get edit" do
-    get edit_campaign_url(@campaign)
-    assert_response :success
   end
 
   test "should update campaign" do

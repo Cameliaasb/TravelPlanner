@@ -4,3 +4,9 @@
     <div class="duration">  <%= campaign.estimated_duration %>  </div>
   </div>
 <% end %>
+
+<% if current_user.instance_of?(Expert) %>
+  <div class="form-container">
+    <%= render "form", campaign: @campaign %>
+  </div>
+<% end %>
