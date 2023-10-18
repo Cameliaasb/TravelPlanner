@@ -10,3 +10,10 @@ toto:
   encrypted_password: azerty
   status: "not_qualified"
   type: "Expert"
+
+tata:
+  username: Tata
+  email: tata@mail.com
+  encrypted_password: azerty
+  status: "qualified"
+  type: "Expert"

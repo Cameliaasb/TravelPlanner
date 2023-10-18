@@ -3,6 +3,7 @@ require "test_helper"
 class CampaignsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @campaign = campaigns(:foo)
+    @campaign_two = campaigns(:bar)
     @user = users(:toto)
     login_as @user
   end
@@ -10,6 +11,12 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
   test "should get all campaigns" do
     get campaigns_url
     assert_response :success
+    assert_select "div.campaign" do
+      assert_select "div.title", @campaign.title
+      assert_select "div.duration", @campaign.estimated_duration.to_s
+      assert_select "div.title", @campaign_two.title
+      assert_select "div.duration", @campaign_two.estimated_duration.to_s
+    end
   end
 
   test "should show one campaign" do

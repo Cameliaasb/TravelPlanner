@@ -1,4 +1,8 @@
 foo:
-  title: test-campaign
+  title: campaign-foo
   estimated_duration: 3.5
   expert: toto
+bar:
+  title: campaign-bar
+  estimated_duration: 3
+  expert: tata

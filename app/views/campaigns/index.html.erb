@@ -1,0 +1,6 @@
+<% @campaigns.each do |campaign| %>
+  <div class="campaign">
+    <div class="title"> <%= campaign.title %> </div>
+    <div class="duration">  <%= campaign.estimated_duration %>  </div>
+  </div>
+<% end %>
