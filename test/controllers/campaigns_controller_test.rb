@@ -1,0 +1,53 @@
+require "test_helper"
+
+class CampaignsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @campaign = campaigns(:foo)
+    @user = users(:toto)
+    login_as @user
+  end
+
+  test "should get all campaigns" do
+    get campaigns_url
+    assert_response :success
+  end
+
+  test "should show one campaign" do
+    get campaign_url(@campaign)
+    assert_response :success
+  end
+
+  test "should get new - form to create a campaign" do
+    get new_campaign_url
+    assert_response :success
+  end
+
+  test "should successfuly create campaign" do
+    assert_difference('Campaign.count') do
+      post campaigns_url, params: { campaign: { title: "New Campaign", estimated_duration: 10 } }
+    end
+
+    assert_redirected_to campaign_url(Campaign.last)
+  end
+
+  test "should get edit" do
+    get edit_campaign_url(@campaign)
+    assert_response :success
+  end
+
+  test "should update campaign" do
+    patch campaign_url(@campaign), params: { campaign: { title: "Updated Campaign" } }
+    assert_redirected_to campaign_url(@campaign)
+    @campaign.reload
+    assert_equal "Updated Campaign", @campaign.title
+  end
+
+  test "should destroy campaign" do
+    assert_difference('Campaign.count', -1) do
+      delete campaign_url(@campaign)
+    end
+
+    assert_redirected_to campaigns_url
+  end
+
+end

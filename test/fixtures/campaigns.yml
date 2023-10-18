@@ -1,3 +1,4 @@
 foo:
   title: test-campaign
   estimated_duration: 3.5
+  expert: toto
