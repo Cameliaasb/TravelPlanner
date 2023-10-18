@@ -31,7 +31,6 @@ class CampaignsController < ApplicationController
   end
 
   def destroy
-    # should only be for owner of campaign
     @campaign = Campaign.find(params[:id])
     @campaign.destroy
     redirect_to campaigns_path
