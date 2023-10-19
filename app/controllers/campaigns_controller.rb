@@ -11,8 +11,11 @@ class CampaignsController < ApplicationController
   def show
     # Only logged users can see the details (handled by Devise before_action)
     @campaign = Campaign.find(params[:id])
-    @comments = Campaigncomment.where(campaign: @campaign)
+    @comments = @campaign.campaigncomments
     @comment  = Campaigncomment.new
+
+    @todos = @campaign.todos
+    @todo = Todo.new
 
     # Used in view to give access to owner only for : edit campaign / add or delete tag
     @owner = owner?(@campaign)
