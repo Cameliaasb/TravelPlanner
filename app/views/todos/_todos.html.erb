@@ -1,0 +1,10 @@
+<%  todos.each do |todo| %>
+  <div class="todo">
+    <%= todo.content %>
+    <% if @owner %>
+      <div class="delete-btn">
+        <%= link_to "Delete", todos_path(todo), data: {turbo_method: :delete} %>
+      </div>
+    <% end%>
+  </div>
+<% end %>

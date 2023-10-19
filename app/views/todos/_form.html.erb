@@ -1,0 +1,5 @@
+<%= simple_form_for todo do |f| %>
+  <%=f.input :campaign_id, as: :hidden, input_html: { value: campaign.id } %>
+  <%= f.input :content %>
+  <%= f.button :submit, value: "New comment" %>
+<% end %>
