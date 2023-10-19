@@ -1,9 +1,13 @@
 <%  todos.each do |todo| %>
   <div class="todo">
+
     <%= todo.content %>
+    <h3> ICI</h3>
+    <%= render "comments/comments", todo: todo, owner: @owner   %>
+
     <% if @owner %>
       <div class="delete-btn">
-        <%= link_to "Delete", todos_path(todo), data: {turbo_method: :delete} %>
+        <%= link_to "Delete", todo_path(todo), data: {turbo_method: :delete} %>
       </div>
     <% end%>
   </div>

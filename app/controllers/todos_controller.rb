@@ -12,11 +12,11 @@ class TodosController < ApplicationController
   end
 
   def destroy
-
     ## Link is in campaigns#show, giving access to campaign owner only
-    @todo = Todo.find(params[:todo_id])
+    @todo = Todo.find(params[:id])
+    @campaign = @todo.campaign
     @todo.destroy
-    redirect_to campaign_path(@todo.campaign)
+    redirect_to campaign_path(@campaign), status: :see_other
   end
 
   private

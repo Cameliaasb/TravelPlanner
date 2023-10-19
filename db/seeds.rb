@@ -42,3 +42,10 @@ tag_two = Tag.new(
   title: "Tag two", campaign: campaign_one, expert: user_three
 )
 p tag_two.save ? "tag_two OK" : "Failed to save tag_two"
+
+
+puts "--------------Creating todos--------------"
+todo = Todo.new(
+  campaign: campaign_one, user: user_one, content: "test todo"
+)
+p todo.save ? "todo OK" : "Failed to save todo"
