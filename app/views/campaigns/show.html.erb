@@ -32,7 +32,7 @@
 
 <div class="todos">
   <%# all todos %>
-  <%= render "todos/todos", todos: @campaign.todos  %>
+  <%= render "todos/todos", todos: @campaign.todos, comment: @comment %>
   <%# new todo %>
   <%= render "todos/form", campaign: @campaign, todo: @todo %>
 </div>
@@ -43,5 +43,5 @@
  <%# all comments %>
   <%= render "campaigncomments/comments", comments: @campaign.campaigncomments, campaign: @campaign   %>
   <%# new comment %>
-  <%= render "campaigncomments/form", campaign: @campaign, comment: @comment %>
+  <%= render "campaigncomments/form", campaign: @campaign, comment: @campaigncomment %>
 </div>

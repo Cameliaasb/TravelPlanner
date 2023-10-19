@@ -2,8 +2,10 @@
   <div class="todo">
 
     <%= todo.content %>
-    <h3> ICI</h3>
-    <%= render "comments/comments", todo: todo, owner: @owner   %>
+    <h3> ---</h3>
+    <%= render "comments/comments", todo: todo, owner: @owner  %>
+    <%= render "comments/form", todo: todo, comment: comment %>
+    <h3> ---</h3>
 
     <% if @owner %>
       <div class="delete-btn">

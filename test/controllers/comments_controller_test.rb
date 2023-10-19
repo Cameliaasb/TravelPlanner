@@ -18,13 +18,13 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     login_as @novice_user
     get campaign_url(@campaign_toto)
     assert_difference('Comment.count') do
-      post todo_comments_path(@todo), params: { comment: { title: "New comment" } }
+      post todo_comments_path(@todo), params: { comment: { title: "New comment", todo_id: @todo.id } }
     end
 
     login_as @expert_user
     get campaign_url(@campaign_toto)
     assert_difference('Comment.count') do
-      post todo_comments_path(@todo), params: { comment: { title: "New comment" } }
+      post todo_comments_path(@todo), params: { comment: { title: "New comment", todo_id: @todo.id } }
     end
   end
 
@@ -32,7 +32,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     login_as @expert_user
     get campaign_url(@campaign_toto)
 
-    assert_select ".todo.comment" do
+    assert_select ".todo-comment" do
       assert_select ".delete-btn"
     end
   end
@@ -41,7 +41,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     login_as @novice_user
     get campaign_url(@campaign_toto)
 
-    assert_select ".todo.comment" do
+    assert_select ".todo-comment" do
       assert_select ".delete-btn", count: 0
     end
   end
