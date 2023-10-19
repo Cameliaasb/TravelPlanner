@@ -2,11 +2,12 @@ class CampaigncommentsController < ApplicationController
   def create
     @comment = Campaigncomment.new(campaigncomment_params)
     @comment.user = current_user
+    @campaign = @comment.campaign
 
     if @comment.save
       redirect_to @comment.campaign, notice: "Comment created"
     else
-      redirect_to @comment.campaign, alert: "Something went wrong, try again"
+      redirect_to @campaign, alert: "Something went wrong, try again"
     end
   end
 
