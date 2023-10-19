@@ -1,10 +1,10 @@
 ## Work in progress
-TravelPlanner is a work in progress, and certain features, especially on the front-end, may not be implemented yet.
+TravelPlanner is a work in progress, and certain features, especially the front-end are not be implemented yet.
 
 ------
 
 ## TravelPlanner
-TravelPlanner is a Ruby on Rails application designed to help users plan their trips with ease. </ br>
+TravelPlanner is a Ruby on Rails application designed to help users plan their trips with ease. <br />
  It allows expert users to create campaigns to plan their adventures and share their ideas with others. Whether you're planning a weekend getaway or an extended vacation, TravelPlanner is the perfect tool to organize your trips.
 
 ### Features
