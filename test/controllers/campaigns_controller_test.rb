@@ -2,33 +2,33 @@ require "test_helper"
 
 class CampaignsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @campaign = campaigns(:campaign_toto)
-    @campaign_two = campaigns(:campaign_tata)
-    @user = users(:toto)
-    login_as @user
+    @campaign_toto = campaigns(:campaign_toto)
+    @campaign_tata = campaigns(:campaign_tata)
+    @toto = users(:toto)
+    login_as @toto
   end
 
   test "should get all campaigns" do
     get campaigns_url
     assert_response :success
-    assert_select "div.campaign" do
-      assert_select "div.title", @campaign.title
-      assert_select "div.duration", @campaign.estimated_duration.to_s
-      assert_select "div.tags", @campaign.tags.first.title
-      assert_select "div.tags", @campaign.tags.last.title
+    assert_select ".campaign" do
+      assert_select ".title", @campaign_toto.title
+      assert_select ".duration", @campaign_toto.estimated_duration.to_s
+      assert_select ".tags", @campaign_toto.tags.first.title
+      assert_select ".tags", @campaign_toto.tags.last.title
 
-      assert_select "div.title", @campaign_two.title
-      assert_select "div.duration", @campaign_two.estimated_duration.to_s
-      assert_select "div.tags", @campaign_two.tags.first.title
-      assert_select "div.tags", @campaign_two.tags.last.title
+      assert_select ".title", @campaign_tata.title
+      assert_select ".duration", @campaign_tata.estimated_duration.to_s
+      assert_select ".tags", @campaign_tata.tags.first.title
+      assert_select ".tags", @campaign_tata.tags.last.title
     end
   end
 
   test "should show one campaign" do
-    get campaign_url(@campaign)
+    get campaign_url(@campaign_toto)
     assert_response :success
-    assert_select "div.big-title", @campaign.title
-    assert_select "div.duration", @campaign.estimated_duration.to_s
+    assert_select ".big-title", @campaign_toto.title
+    assert_select ".duration", @campaign_toto.estimated_duration.to_s
   end
 
   test "should successfuly create campaign" do
@@ -40,15 +40,15 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update campaign" do
-    patch campaign_url(@campaign), params: { campaign: { title: "Updated Campaign" } }
-    assert_redirected_to campaign_url(@campaign)
-    @campaign.reload
-    assert_equal "Updated Campaign", @campaign.title
+    patch campaign_url(@campaign_toto), params: { campaign: { title: "Updated Campaign" } }
+    assert_redirected_to campaign_url(@campaign_toto)
+    @campaign_toto.reload
+    assert_equal "Updated Campaign", @campaign_toto.title
   end
 
   test "should destroy campaign" do
     assert_difference('Campaign.count', -1) do
-      delete campaign_url(@campaign)
+      delete campaign_url(@campaign_toto)
     end
 
     assert_redirected_to campaigns_url
