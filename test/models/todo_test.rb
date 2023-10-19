@@ -20,4 +20,11 @@ class TodoTest < ActiveSupport::TestCase
     todo = Todo.new(content: "test-todo", campaign: campaigns(:campaign_toto), user: users(:test))
     assert_equal todo.done, false
   end
+
+
+  test "Each todo is unique" do
+    Todo.create(content: "test", campaign: campaigns(:campaign_toto), user: users(:test))
+    todo = Todo.create(content: "test", campaign: campaigns(:campaign_toto), user: users(:toto))
+    assert_not todo.valid?, "Invalid if same content"
+  end
 end

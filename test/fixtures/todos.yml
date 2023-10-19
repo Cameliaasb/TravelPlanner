@@ -1,0 +1,9 @@
+todo_toto:
+  content: "todo_toto_in_campaign_toto"
+  campaign: campaign_toto
+  user: toto
+
+todo_tata:
+  content: "todo_tata_in_campaign_toto"
+  campaign: campaign_toto
+  user: tata

@@ -8,7 +8,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
     login_as @toto
   end
 
-  test "should get all tags" do
+  test "should get all tags in index" do
     get campaigns_url
     assert_response :success
     assert_select ".tags", @campaign_toto.tags.first.title
