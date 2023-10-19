@@ -30,6 +30,8 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     # to make sure it includes the tag title (not strictly equal) AND the delete btn
     assert_select "div.tags", /#{@campaign.tags.first.title}/
-    assert_select "div.delete-btn"
+    assert_select "div.tag" do
+      assert_select "div.delete-btn"
+    end
   end
 end

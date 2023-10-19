@@ -4,12 +4,16 @@
 
   <div class="tags">
     <% @campaign.tags.each do |tag| %>
-      <%= tag.title  %>
-      <% if @owner %>
-        <div  class="delete-btn">
-        <%= link_to "Delete", tag_path(tag), data: {turbo_method: :delete} %>
-        <% end%>
+
+      <div class="tag">
+        <%= tag.title  %>
+        <% if @owner %>
+          <div  class="delete-btn">
+          <%= link_to "Delete", tag_path(tag), data: {turbo_method: :delete} %>
+          <% end%>
+        </div>
       </div>
+
     <% end%>
   </div>
 
