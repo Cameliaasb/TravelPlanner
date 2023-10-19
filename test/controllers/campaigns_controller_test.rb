@@ -2,8 +2,8 @@ require "test_helper"
 
 class CampaignsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @campaign = campaigns(:foo)
-    @campaign_two = campaigns(:bar)
+    @campaign = campaigns(:campaign_toto)
+    @campaign_two = campaigns(:campaign_tata)
     @user = users(:toto)
     login_as @user
   end

@@ -1,8 +1,8 @@
-tag_one:
-  title: tag_one
+tag_toto:
+  title: tag_toto
   expert: toto
-  campaign: foo
-tag_two:
-  title: tag_two
+  campaign: campaign_toto
+tag_tata:
+  title: tag_tata
   expert: tata
-  campaign: bar
+  campaign: campaign_tata
