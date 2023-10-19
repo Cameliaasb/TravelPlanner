@@ -1,4 +1,4 @@
-<%= simple_form_for tag do |f| %>
+<%= simple_form_for [campaign, tag] do |f| %>
   <%=f.input :campaign_id, as: :hidden, input_html: { value: campaign.id } %>
   <%= f.input :title %>
   <%= f.button :submit, value: "New tag" %>

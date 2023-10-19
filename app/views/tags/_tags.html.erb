@@ -1,19 +1,12 @@
-<div class="tags">
-  <% tags.each do |tag| %>
+<% tags.each do |tag| %>
 
-    <div class="tag">
-      <%= tag.title  %>
-      <% if @owner %>
-        <div  class="delete-btn">
-        <%= link_to "Delete", tag_path(tag), data: {turbo_method: :delete} %>
-        <% end%>
-      </div>
+  <div class="tag">
+    <%= tag.title  %>
+    <% if @owner %>
+      <div  class="delete-btn">
+      <%= link_to "Delete", campaign_tag_path(campaign, tag), data: {turbo_method: :delete } %>
+      <% end%>
     </div>
+  </div>
 
-  <% end%>
-
-
-  <%# new tag %>
-  <%= render "tags/form", campaign: @campaign, tag: @tag %>
-
-</div>
+<% end%>

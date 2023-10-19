@@ -1,4 +1,4 @@
-<%= simple_form_for comment do |f| %>
+<%= simple_form_for [campaign, comment] do |f| %>
   <%=f.input :campaign_id, as: :hidden, input_html: { value: campaign.id } %>
   <%= f.input :title %>
   <%= f.button :submit, value: "New comment" %>

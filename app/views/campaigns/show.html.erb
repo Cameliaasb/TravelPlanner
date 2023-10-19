@@ -4,8 +4,12 @@
 
 
 <h3> TAGS </h3>
-<%= render "tags/tags", tags: @campaign.tags %>
-
+<div class="tags">
+  <%# all tags %>
+  <%= render "tags/tags", tags: @campaign.tags, campaign: @campaign %>
+  <%# new tag %>
+  <%= render "tags/form", campaign: @campaign, tag: @tag %>
+</div>
 
 <% if @owner %>
 <h3> OWNER ACTIONS </h3>
@@ -37,7 +41,7 @@
 <h3> COMMENTS </h3>
 <div class="comments">
  <%# all comments %>
-  <%= render "campaigncomments/comments", comments: @comments  %>
+  <%= render "campaigncomments/comments", comments: @comments, campaign: @campaign   %>
   <%# new comment %>
   <%= render "campaigncomments/form", campaign: @campaign, comment: @comment %>
 </div>

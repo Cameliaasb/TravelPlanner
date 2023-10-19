@@ -14,7 +14,7 @@ class CampaigncommentsController < ApplicationController
     @comment = Campaigncomment.find(params[:id])
     @campaign = @comment.campaign
     @comment.destroy
-    redirect_to campaign_path(@campaign)
+    redirect_to campaign_path(@campaign), status: :see_other
   end
 
   private
