@@ -7,6 +7,7 @@ class User < ApplicationRecord
   STATUS = ["qualified", "not_qualified", "banned"]
   validates :status, inclusion: { in: STATUS }
 
-  has_many :todos
-  has_many :campaigncomments
+  has_many :todos, dependent: :destroy
+  has_many :campaigncomments, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end

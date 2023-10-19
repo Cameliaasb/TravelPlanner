@@ -1,7 +1,7 @@
 class Campaign < ApplicationRecord
-  has_many    :tags
-  has_many    :todos
-  has_many    :campaigncomments
+  has_many    :tags, dependent: :destroy
+  has_many    :todos, dependent: :destroy
+  has_many    :campaigncomments, dependent: :destroy
 
   belongs_to  :expert
 

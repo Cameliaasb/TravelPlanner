@@ -34,11 +34,11 @@ p campaign_two.save ? "campaign_two OK" : "Failed to save campaign_two"
 
 puts "--------------Creating tags--------------"
 tag_one = Tag.new(
-  title: "Tag one", campaign: campaign_one, user: user_three
+  title: "Tag one", campaign: campaign_one, expert: user_three
 )
 p tag_one.save ? "tag_one OK" : "Failed to save tag_one"
 
 tag_two = Tag.new(
-  title: "Tag two", campaign: campaign_one, user: user_three
+  title: "Tag two", campaign: campaign_one, expert: user_three
 )
 p tag_two.save ? "tag_two OK" : "Failed to save tag_two"
