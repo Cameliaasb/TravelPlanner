@@ -4,16 +4,18 @@ class CampaignsController < ApplicationController
 
   def index
     # No need to be logged to see campaigns
-    @campaigns = Campaign.all
-    @campaign = Campaign.new
+    @campaigns  = Campaign.all
+    @campaign   = Campaign.new
   end
 
   def show
     # Only logged users can see the details (handled by Devise before_action)
     @campaign = Campaign.find(params[:id])
+    @comments = Campaigncomment.where(campaign: @campaign)
+    @comment  = Campaigncomment.new
+
     # Used in view to give access to owner only for : edit campaign / add or delete tag
     @owner = owner?(@campaign)
-    # Only the campaign owner has access to tags#new
     @tag = Tag.new
   end
 

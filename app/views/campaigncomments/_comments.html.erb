@@ -1,0 +1,15 @@
+<div class="comments">
+  <%  comments.each do |comment| %>
+    <div class="comment">
+      <%= comment.title %>
+      <% if @owner %>
+        <div class="delete-btn">
+          <%= link_to "Delete", campaigncomment_path(comment), data: {turbo_method: :delete} %>
+        </div>
+      <% end%>
+    </div>
+  <% end %>
+
+  <%# new comment %>
+  <%= render "campaigncomments/form", campaign: @campaign, comment: @comment %>
+</div>

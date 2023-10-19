@@ -17,19 +17,19 @@ class CampaigncommentsControllerTest < ActionDispatch::IntegrationTest
   test "Any user can comment on a campaign" do
     login_as @novice_user
     get campaign_url(@campaign_one)
-    assert_select ".btn", text: "New comment"
+    assert_select "input[type=submit][value='New comment']"
 
     login_as @expert_user
     get campaign_url(@campaign_one)
-    assert_select ".btn", text: "New comment"
+    assert_select "input[type=submit][value='New comment']"
   end
 
   test "Campaign owner can delete a comment" do
     login_as @expert_user
     get campaign_url(@campaign_one)
 
-    assert_select "div.comment" do
-      assert_select "a[data-method='delete']"
+    assert_select ".comment" do
+      assert_select ".delete-btn"
     end
   end
 
@@ -37,8 +37,8 @@ class CampaigncommentsControllerTest < ActionDispatch::IntegrationTest
     login_as @expert_user
     get campaign_url(@campaign_two)
 
-    assert_select "div.comment" do
-      assert_no_select "a[data-method='delete']"
+    assert_select ".comment" do
+      assert_select ".delete-btn", count: 0
     end
   end
 

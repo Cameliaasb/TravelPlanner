@@ -1,0 +1,8 @@
+comment_test:
+  user: test
+  campaign: campaign_toto
+  title: "comment test"
+comment_toto:
+  user: toto
+  campaign: campaign_tata
+  title: "comment toto"

@@ -2,30 +2,28 @@
 <div class="duration">  <%= @campaign.estimated_duration %>  </div>
 <div class="duration">  <%= @campaign.expert.username %>  </div>
 
-  <div class="tags">
-    <% @campaign.tags.each do |tag| %>
 
-      <div class="tag">
-        <%= tag.title  %>
-        <% if @owner %>
-          <div  class="delete-btn">
-          <%= link_to "Delete", tag_path(tag), data: {turbo_method: :delete} %>
-          <% end%>
-        </div>
-      </div>
+<h3> TAGS </h3>
+<%= render "tags/tags", tags: @campaign.tags %>
 
-    <% end%>
-  </div>
 
 <% if @owner %>
+<h3> OWNER ACTIONS </h3>
 
+  <%# Owner can edit campaign %>
   <div class="form-container">
     <%= render "form", campaign: @campaign %>
   </div>
 
+  <%# Owner can delete campaign %>
   <%= link_to "Delete",
     campaign_path(@campaign),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
 
 <% end %>
+
+
+<h3> COMMENTS </h3>
+
+<%= render "campaigncomments/comments", comments: @comments, campaign: @campaign, comment: @comment  %>
