@@ -1,5 +1,4 @@
 <%= simple_form_for [todo, comment] do |f| %>
-  <%=f.input :todo_id, as: :hidden, input_html: { value: todo.id } %>
   <%= f.input :title %>
   <%= f.button :submit, value: "New comment" %>
 <% end %>

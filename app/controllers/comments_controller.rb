@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def create
     ## New is in campaigns#index
     @comment = Comment.new(comment_params)
+    @comment.todo = Todo.find(params[:todo_id])
     @comment.user = current_user
     @campaign = @comment.todo.campaign
 
@@ -23,6 +24,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:title, :todo_id)
+    params.require(:comment).permit(:title)
   end
 end

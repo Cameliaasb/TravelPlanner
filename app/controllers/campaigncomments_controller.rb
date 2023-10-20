@@ -1,6 +1,7 @@
 class CampaigncommentsController < ApplicationController
   def create
     @comment = Campaigncomment.new(campaigncomment_params)
+    @comment.campaign = Campaign.find(params[:campaign_id])
     @comment.user = current_user
     @campaign = @comment.campaign
 
@@ -21,6 +22,6 @@ class CampaigncommentsController < ApplicationController
   private
 
   def campaigncomment_params
-    params.require(:campaigncomment).permit(:title, :campaign_id)
+    params.require(:campaigncomment).permit(:title)
   end
 end
