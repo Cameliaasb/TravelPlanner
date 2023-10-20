@@ -3,6 +3,7 @@ class Campaign < ApplicationRecord
   has_many    :tags, dependent: :destroy
   has_many    :todos, dependent: :destroy
   has_many    :campaigncomments, dependent: :destroy
+  has_many    :decisions, dependent: :destroy
   has_many    :memberships, dependent: :destroy
   has_many    :members, through: :memberships
 
