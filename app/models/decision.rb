@@ -1,4 +1,5 @@
 class Decision < ApplicationRecord
-  belongs_to :campaign
-  validates :title, :content, :campaign_id, presence: true
+  belongs_to  :campaign
+  belongs_to  :expert
+  validates   :title, :content, presence: true
 end

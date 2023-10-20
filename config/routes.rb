@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :campaigns, only: %i[index show create update destroy] do
     resources :tags, only: %i[create destroy]
     resources :campaigncomments, only: %i[create destroy]
+    resources :decisions, only: %i[create update destroy]
   end
 
 

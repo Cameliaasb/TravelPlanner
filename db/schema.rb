@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_20_092450) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_20_094011) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,7 +50,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_092450) do
     t.bigint "campaign_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "expert_id"
     t.index ["campaign_id"], name: "index_decisions_on_campaign_id"
+    t.index ["expert_id"], name: "index_decisions_on_expert_id"
   end
 
   create_table "memberships", force: :cascade do |t|

@@ -1,0 +1,5 @@
+decision_one:
+  campaign: campaign_tata
+  title: "decision one"
+  content: "this is a decision"
+  expert: toto

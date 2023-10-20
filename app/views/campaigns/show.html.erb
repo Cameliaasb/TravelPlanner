@@ -45,3 +45,12 @@
   <%# new comment %>
   <%= render "campaigncomments/form", campaign: @campaign, comment: @campaigncomment %>
 </div>
+
+
+<h3> DECISIONS </h3>
+<div class="decisions">
+ <%# all comments %>
+  <%= render "decisions/decisions", decisions: @campaign.decisions, campaign: @campaign   %>
+  <%# new comment %>
+  <%= render "decisions/form", campaign: @campaign, decision: @decision %>
+</div>

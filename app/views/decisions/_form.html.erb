@@ -1,0 +1,5 @@
+<%= simple_form_for [campaign, decision] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.button :submit, value: "New decision" %>
+<% end %>

@@ -14,10 +14,14 @@ class CampaignsController < ApplicationController
     @campaigncomment = Campaigncomment.new
     @todo = Todo.new
     @comment = Comment.new
+    @decision = Decision.new
 
     # Used in view to give access to owner only for : edit campaign / add or delete tag
     @owner = owner?(@campaign)
     @tag = Tag.new
+
+    # Used in view to give access to experts only for : create, edit or delete decisions
+    @expert = expert?
   end
 
   def create

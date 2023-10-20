@@ -3,7 +3,7 @@ class TagsController < ApplicationController
     ## New is in campaigns#index, giving access to campaign owner only
     @tag = Tag.new(tag_params)
     @tag.expert = current_user
-    @campaign = @tag.campaign
+    @campaign = @tag.campaign if expert?
 
     if @tag.save
       redirect_to @tag.campaign, notice: "Tag created"
@@ -21,6 +21,10 @@ class TagsController < ApplicationController
   end
 
   private
+
+  def expert?
+    current_user.instance_of?(Expert)
+  end
 
   def tag_params
     params.require(:tag).permit(:title, :campaign_id)
