@@ -1,7 +1,6 @@
-<div class="big-title"> <%= @campaign.title %> </div>
-<div class="duration">  <%= @campaign.estimated_duration %>  </div>
-<div class="duration">  <%= @campaign.expert.username %>  </div>
-
+<div class="big-title">
+    <%= render "campaigns/form", campaign: @campaign, owner: @owner %>
+</div>
 
 <h3> TAGS </h3>
 <div class="tags">
@@ -16,7 +15,6 @@
 
   <%# Owner can edit campaign %>
   <div class="form-container">
-    <%= render "form", campaign: @campaign %>
   </div>
 
   <%# Owner can delete campaign %>

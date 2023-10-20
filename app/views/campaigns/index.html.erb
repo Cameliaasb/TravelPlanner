@@ -14,6 +14,6 @@
 
 <% if current_user.instance_of?(Expert) %>
   <div class="form-container">
-    <%= render "form", campaign: @campaign %>
+    <%= render "form", campaign: @campaign, owner: @owner %>
   </div>
 <% end %>
