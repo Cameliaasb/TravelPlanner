@@ -1,8 +1,8 @@
 campaign_toto:
-  title: campaign-toto
+  title: campaign_toto
   estimated_duration: 3.5
   expert: toto
 campaign_tata:
-  title: campaign-tata
+  title: campaign_tata
   estimated_duration: 3
   expert: tata

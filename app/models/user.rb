@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :todos, dependent: :destroy
   has_many :campaigncomments, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :memberships, dependent: :destroy
+  has_many :trips, through: :memberships
 end

@@ -1,10 +1,9 @@
 class CampaignsController < ApplicationController
   before_action :authenticate_user!
-  skip_before_action :authenticate_user!, only: :index
 
   def index
-    # No need to be logged to see campaigns
-    @campaigns  = Campaign.all
+    # Only logged users can see the index because they only have access to trips where they are members
+    @campaigns  = current_user.trips
     @campaign   = Campaign.new
   end
 
@@ -26,6 +25,8 @@ class CampaignsController < ApplicationController
     # Only expert users can create a new campaign
     @campaign.expert = current_user if expert?
     if @campaign.save
+      owner_is_member(@campaign, @campaign.expert)
+      upgrade_status(@campaign.expert)
       redirect_to @campaign
     else
       redirect_to campaigns_path, notice: "Something went wrong, try again"
@@ -48,6 +49,23 @@ class CampaignsController < ApplicationController
   end
 
   private
+
+  def upgrade_status(user)
+    experience = user.campaigns.count
+    if experience > 10
+      # highest rank : guru
+      user.status = Expert::STATUS[2]
+    elsif experience > 5
+      # master
+      user.status = Expert::STATUS[1]
+    else
+      user.status = Expert::STATUS[0]
+    end
+  end
+
+  def owner_is_member(campaign, user)
+    Membership.create(trip: campaign, member: user)
+  end
 
   def expert?
     current_user.instance_of?(Expert)

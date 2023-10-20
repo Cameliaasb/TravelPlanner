@@ -1,0 +1,6 @@
+member_one:
+  member: toto
+  trip: campaign_tata
+member_two:
+  member: toto
+  trip: campaign_toto

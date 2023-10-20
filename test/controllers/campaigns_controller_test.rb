@@ -9,6 +9,7 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get all campaigns" do
+    # toto is a member of all campaigns in fixtures
     get campaigns_url
     assert_response :success
     assert_select ".campaign" do
@@ -54,4 +55,9 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to campaigns_url
   end
 
+  test "owner of campaign is a member" do
+    post campaigns_url, params: { campaign: { title: "New Campaign", estimated_duration: 10 } }
+    created_campaign = assigns(:campaign)
+    assert_includes created_campaign.members, @toto
+  end
 end

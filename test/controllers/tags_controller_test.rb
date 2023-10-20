@@ -9,6 +9,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get all tags in index" do
+    # toto is a member of all campaigns in fixtures
     get campaigns_url
     assert_response :success
     assert_select ".tags", @campaign_toto.tags.first.title
