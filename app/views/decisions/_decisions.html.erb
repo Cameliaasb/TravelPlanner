@@ -6,7 +6,7 @@
 
     <% if @expert %>
       <div class="delete-btn">
-        <%= link_to "Delete", campaign_decisions_path(decision), data: {turbo_method: :delete} %>
+        <%= link_to "Delete", campaign_decision_path(campaign, decision), data: {turbo_method: :delete} %>
       </div>
 
       <div class="edit-btn">

@@ -38,6 +38,6 @@ class DecisionsController < ApplicationController
   end
 
   def decision_params
-    params.require(:decision).permit(:title, :content, :campaign_id)
+    params.require(:decision).permit(:title, :content)
   end
 end
