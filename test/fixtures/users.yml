@@ -2,18 +2,17 @@ test:
   username: test
   email: test@mail.com
   encrypted_password: azerty
-  status: "not_qualified"
 
 toto:
   username: Toto
   email: toto@mail.com
   encrypted_password: azerty
-  status: "not_qualified"
   type: "Expert"
+  status: "guru"
 
 tata:
   username: Tata
   email: tata@mail.com
   encrypted_password: azerty
-  status: "qualified"
   type: "Expert"
+  status: "master"

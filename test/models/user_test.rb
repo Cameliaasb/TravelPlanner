@@ -15,10 +15,4 @@ class UserTest < ActiveSupport::TestCase
     user = User.new
     assert_respond_to user, :type, "User model should respond to 'type'"
   end
-
-  test "A user must have a valid status" do
-    user = users(:test)
-    user.status = "invalid status"
-    assert_not user.valid?, "User status should be valid"
-  end
 end

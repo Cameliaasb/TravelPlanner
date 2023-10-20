@@ -2,20 +2,19 @@ User.destroy_all
 
 puts "--------------Creating users--------------"
 user_one = User.new(
-  email: "test@mail.com", password: "azerty", username: "test",
-  status: "not_qualified"
+  email: "test@mail.com", password: "azerty", username: "test"
 )
 p user_one.save ? "user_one OK" : "Failed to save user_one"
 
 user_two = User.new(
   email: "toto@mail.com", password: "azerty", username: "toto",
-  status: "qualified", type: "Expert", profession: "Dev", service: "IT"
+  status: "guru", type: "Expert"
 )
 p user_two.save ? "user_two OK" : "Failed to save user_two"
 
 user_three = User.new(
   email: "tata@mail.com", password: "azerty", username: "tata",
-  status: "qualified", type: "Expert", profession: "Dev", service: "IT"
+  status: "master", type: "Expert"
 )
 p user_three.save ? "user_three OK" : "Failed to save user_three"
 
