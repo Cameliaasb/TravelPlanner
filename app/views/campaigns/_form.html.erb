@@ -1,7 +1,6 @@
-<div>
-  <%= simple_form_for campaign, data: { controller: "form", form_value: owner } do |f| %>
-    <%= f.input :title, label: false, disabled: !owner, input_html: { data: {form_target:"input"}}  %>
-    <%= f.input :estimated_duration, label: false, disabled: !owner, input_html: { data: {form_target:"input"}}  %>
-    <%= f.button :submit if owner %>
-  <% end %>
-</div>
+
+<%= simple_form_for campaign, data: { controller: "form", form_owner_value: owner } do |f| %>
+  <%= f.input :title, label: false, disabled: !owner, input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}  %>
+  <%= f.input :estimated_duration, label: false, disabled: !owner, input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}  %>
+  <%= f.button :submit, value:"Save changes", data: {form_target:"saveBtn"}, class:"btn-primary d-none" if owner %>
+<% end %>

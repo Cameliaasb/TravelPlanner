@@ -2,25 +2,27 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="form"
 export default class extends Controller {
-  static targets = ["input"]
+  static targets = ["input", "saveBtn"]
   static values = {
     owner: Boolean
   }
 
   connect() {
-    console.log("jy usis")
+    // Removes crayon next to editable fields according to access
+    this.owner_access()
     console.log(this.inputTargets)
-    console.log(this.ownerValue)
-    this.handle()
+    console.log(this.saveBtnTarget)
   }
 
-  // TO DO : why owner is always false?
-  handle() {
+  owner_access() {
     if (this.ownerValue == false ) {
       this.inputTargets.forEach ((input) => {
         input.classList.remove("is-valid")
-        console.log(input)
       })
     }
-}
+  }
+
+  display_btn() {
+    this.saveBtnTarget.classList.remove("d-none")
+  }
 }
