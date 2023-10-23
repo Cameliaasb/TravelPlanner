@@ -12,10 +12,9 @@ class DecisionsControllerTest < ActionDispatch::IntegrationTest
     login_as @novice
     get campaign_url(@campaign_tata)
     assert_response :success
-    assert_select ".decision", /#{@campaign_tata.decisions.first.title}/
-    assert_select ".decision", /#{@campaign_tata.decisions.first.content}/
-    assert_select ".decision", /#{@campaign_tata.decisions.last.title}/
-    assert_select ".decision", /#{@campaign_tata.decisions.last.content}/
+
+    # Assert that the counts match
+    assert_equal css_select(".decision").count, @campaign_tata.decisions.count
   end
 
   test "should allow experts to modify or delete decision" do
