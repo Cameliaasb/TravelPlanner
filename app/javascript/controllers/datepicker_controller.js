@@ -9,15 +9,11 @@ export default class extends Controller {
 
 
   connect() {
-    console.log("hello")
-    console.log(this.startTarget)
-    console.log(this.endTarget)
-
     flatpickr(this.startTarget, {
       minDate: "today"
     })
     flatpickr(this.endTarget, {
-      minDate: "today"
+      minDate: 'today'
     })
   }
 }

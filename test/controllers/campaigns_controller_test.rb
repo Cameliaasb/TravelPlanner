@@ -28,7 +28,7 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
   test "should show one campaign" do
     get campaign_url(@campaign_toto)
     assert_response :success
-    assert_select ".big-title"
+    assert_select ".header"
   end
 
   test "should successfuly create campaign" do

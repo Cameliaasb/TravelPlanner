@@ -1,6 +1,6 @@
-<%= simple_form_for campaign, data: { controller: "form", form_owner_value: owner } do |f| %>
+<%= simple_form_for campaign, data: { controller: "form", form_access_value: owner } do |f| %>
 
-  <div class="header-layout container">
+  <div class="header-layout">
     <div class="title-block"> <%# title, duration and username of owner %>
 
       <%= f.input     :title, label: false, disabled: !owner,

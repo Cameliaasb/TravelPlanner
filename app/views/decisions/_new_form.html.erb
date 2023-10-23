@@ -1,0 +1,7 @@
+<div class="block">
+  <%= simple_form_for [campaign, decision] do |f| %>
+    <%= f.input :title, label: false %>
+    <%= f.input :content, label: false %>
+    <%= f.button :submit, value: "New decision" %>
+  <% end %>
+</div>

@@ -7,12 +7,13 @@
 
   <div class="block">
     <%# Campaign description, editable by owner %>
-    <%= simple_form_for @campaign, data: { controller: "form", form_owner_value: @owner } do |f| %>
+    <%= simple_form_for @campaign, data: { controller: "form", form_access_value: @owner } do |f| %>
       <%= f.input     :description, label: false, disabled: !@owner,
                       input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}
                       %>
     <% end %>
-      <%# all tags %>
+
+    <%# all tags %>
     <div class="tags">
       <%= render "tags/tags", tags: @campaign.tags, campaign: @campaign %>
       <%# new tag %>
@@ -22,7 +23,13 @@
 
 
 
+  <div class="decisions">
+    <%# all decisions are editable by experts %>
+    <%= render "decisions/decisions", decisions: @campaign.decisions, campaign: @campaign, access: @expert %>
 
+    <%# new decision %>
+    <%= render "decisions/new_form", campaign: @campaign, decision: @decision if @expert %>
+  </div>
 
     <h3> TODOS </h3>
 
@@ -43,12 +50,6 @@
     </div>
 
 
-    <h3> DECISIONS </h3>
-    <div class="decisions">
-    <%# all comments %>
-      <%= render "decisions/decisions", decisions: @campaign.decisions, campaign: @campaign   %>
-      <%# new comment %>
-      <%= render "decisions/form", campaign: @campaign, decision: @decision %>
-    </div>
+
 
 </div>

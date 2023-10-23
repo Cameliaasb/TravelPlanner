@@ -1,17 +1,17 @@
 test:
-  username: test
+  username: "test"
   email: test@mail.com
   encrypted_password: azerty
 
 toto:
-  username: Toto
+  username: "Toto"
   email: toto@mail.com
   encrypted_password: azerty
   type: "Expert"
   status: "guru"
 
 tata:
-  username: Tata
+  username: "Tata"
   email: tata@mail.com
   encrypted_password: azerty
   type: "Expert"

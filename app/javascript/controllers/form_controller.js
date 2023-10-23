@@ -4,16 +4,16 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["input", "saveBtn"]
   static values = {
-    owner: Boolean
+    access: Boolean
   }
 
   connect() {
     // Removes crayon next to editable fields according to access
-    this.owner_access()
+    this.give_access()
   }
 
-  owner_access() {
-    if (this.ownerValue == false ) {
+  give_access() {
+    if (this.accessValue == false ) {
       this.inputTargets.forEach ((input) => {
         input.classList.remove("is-valid")
       })

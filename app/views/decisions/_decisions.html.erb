@@ -1,17 +1,7 @@
 <%  decisions.each do |decision| %>
-  <div class="decision">
-
-    <%= decision.title %>
-    <%= decision.content %>
-
-    <% if @expert %>
-      <div class="delete-btn">
-        <%= link_to "Delete", campaign_decision_path(campaign, decision), data: {turbo_method: :delete} %>
-      </div>
-
+  <div class="block decision">
       <div class="edit-btn">
-        <%= render "decisions/form", decision: decision, campaign: campaign %>
+        <%= render "decisions/update_form", decision: decision, campaign: campaign, access: access %>
       </div>
-    <% end%>
   </div>
 <% end %>

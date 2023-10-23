@@ -80,6 +80,6 @@ class CampaignsController < ApplicationController
   end
 
   def campaign_params
-    params.require(:campaign).permit(:title, :estimated_duration, :start_date, :end_date)
+    params.require(:campaign).permit(:title, :estimated_duration, :start_date, :end_date, :description)
   end
 end
