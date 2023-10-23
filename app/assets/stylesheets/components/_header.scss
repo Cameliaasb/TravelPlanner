@@ -1,40 +1,41 @@
-.header-layout{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .header {
-  width: 100%;
-  height:fit-content;
-  background-color: $main-color;
-  padding: 18px 32px;
+  width:              100%;
+  height:             fit-content;
+  background-color:   $main-color;
+  padding:            18px 32px;
+
+  .header-layout{
+    display:          flex;
+    justify-content:  space-between;
+    align-items:      center;
+  }
 
   .form-control {
-    border: none;
+    border:           none;
   }
 }
 
 .title-block {
-  width: 300px;
+  width:              300px;
 
   #campaign_title {
-    font-size: 2rem;
+    font-size:        2rem;
   }
+
   .d-flex {
     justify-content: space-between;
-    gap: 100px;
+    gap:             100px;
   }
 }
 
 .label {
-  color:white;
-  font-weight:bold;
-  padding: 0.375rem 0.75rem;
+  color:          white;
+  font-weight:      bold;
+  padding:          0.375rem 0.75rem;
 }
 
 
 .date-block .d-flex {
   justify-content: flex-end;
-  gap: 50px;
+  gap:             50px;
 }
