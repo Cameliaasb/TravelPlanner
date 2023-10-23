@@ -21,13 +21,13 @@ p user_three.save ? "user_three OK" : "Failed to save user_three"
 
 puts "--------------Creating campaigns--------------"
 campaign_one = Campaign.new(
-  title: "Campaign One", estimated_duration: 2, description: "A week end in the sun",
+  title: "Campaign One", description: "A week end in the sun",
   expert: user_two
 )
 p campaign_one.save ? "campaign_one OK" : "Failed to save campaign_one"
 
 campaign_two = Campaign.new(
-  title: "Campaign Two", estimated_duration: 3, description: "A week end at sea",
+  title: "Campaign Two", description: "A week end at sea",
   expert: user_three
 )
 p campaign_two.save ? "campaign_two OK" : "Failed to save campaign_two"

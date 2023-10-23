@@ -1,9 +1,7 @@
 campaign_toto:
   title: campaign_toto
-  estimated_duration: 2
   description: "A week-end in the sun"
   expert: toto
 campaign_tata:
   title: campaign_tata
-  estimated_duration: 3
   expert: tata

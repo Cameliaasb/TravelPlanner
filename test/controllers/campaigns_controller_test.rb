@@ -14,12 +14,10 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select ".campaign" do
       assert_select ".title", @campaign_toto.title
-      assert_select ".duration", @campaign_toto.estimated_duration.to_s
       assert_select ".tags", @campaign_toto.tags.first.title
       assert_select ".tags", @campaign_toto.tags.last.title
 
       assert_select ".title", @campaign_tata.title
-      assert_select ".duration", @campaign_tata.estimated_duration.to_s
       assert_select ".tags", @campaign_tata.tags.first.title
       assert_select ".tags", @campaign_tata.tags.last.title
     end
@@ -33,7 +31,7 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
 
   test "should successfuly create campaign" do
     assert_difference('Campaign.count') do
-      post campaigns_url, params: { campaign: { title: "New Campaign", estimated_duration: 10 } }
+      post campaigns_url, params: { campaign: { title: "New Campaign"} }
     end
 
     assert_redirected_to campaign_url(Campaign.last)
@@ -55,7 +53,7 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "owner of campaign is a member" do
-    post campaigns_url, params: { campaign: { title: "New Campaign", estimated_duration: 10 } }
+    post campaigns_url, params: { campaign: { title: "New Campaign" } }
     created_campaign = assigns(:campaign)
     assert_includes created_campaign.members, @toto
   end

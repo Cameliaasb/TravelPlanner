@@ -9,5 +9,5 @@ class Campaign < ApplicationRecord
 
   belongs_to  :expert
 
-  validates   :title, :estimated_duration, presence: true
+  validates   :title, presence: true
 end
