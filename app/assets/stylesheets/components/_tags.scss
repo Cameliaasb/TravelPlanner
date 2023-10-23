@@ -1,0 +1,35 @@
+.tags {
+  display:        flex;
+  flex-wrap:      wrap;
+  gap:            1rem;
+}
+
+
+.tag, #new_tag {
+  color:            white !important;
+  max-width:         fit-content;
+  padding:           4px 8px;
+  text-align:        center;
+  display:           flex;
+  justify-content:   space-between;
+  align-items:       center;
+  gap:               0.8rem;
+  border-radius:     $border-radius-sm;
+
+  .form-control::placeholder, .form-control {
+    color:         white;
+    width:           80px;
+  }
+
+  .mb-3 {
+    margin:         0px !important;
+  }
+}
+
+#new_tag {
+  background-color: $blue;
+}
+
+.tag {
+  background-color: $green;
+}

@@ -1,40 +1,54 @@
 <div class="header">
-    <%# Owner can edit campaign, otherwise it's readonly %>
+    <%# Owner can edit and delete campaign, otherwise it's readonly %>
     <%= render "campaigns/form", campaign: @campaign, owner: @owner %>
 </div>
 
-<h3> TAGS </h3>
-<div class="tags">
-  <%# all tags %>
-  <%= render "tags/tags", tags: @campaign.tags, campaign: @campaign %>
-  <%# new tag %>
-  <%= render "tags/form", campaign: @campaign, tag: @tag %>
-</div>
+<div class="container top-padding">
+
+  <div class="block">
+    <%# Campaign description, editable by owner %>
+    <%= simple_form_for @campaign, data: { controller: "form", form_owner_value: @owner } do |f| %>
+      <%= f.input     :description, label: false, disabled: !@owner,
+                      input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}
+                      %>
+    <% end %>
+      <%# all tags %>
+    <div class="tags">
+      <%= render "tags/tags", tags: @campaign.tags, campaign: @campaign %>
+      <%# new tag %>
+      <%= render "tags/form", campaign: @campaign, tag: @tag if @owner%>
+    </div>
+  </div>
 
 
-<h3> TODOS </h3>
-
-<div class="todos">
-  <%# all todos %>
-  <%= render "todos/todos", todos: @campaign.todos, comment: @comment %>
-  <%# new todo %>
-  <%= render "todos/form", campaign: @campaign, todo: @todo %>
-</div>
 
 
-<h3> COMMENTS </h3>
-<div class="comments">
- <%# all comments %>
-  <%= render "campaigncomments/comments", comments: @campaign.campaigncomments, campaign: @campaign   %>
-  <%# new comment %>
-  <%= render "campaigncomments/form", campaign: @campaign, comment: @campaigncomment %>
-</div>
+
+    <h3> TODOS </h3>
+
+    <div class="todos">
+      <%# all todos %>
+      <%= render "todos/todos", todos: @campaign.todos, comment: @comment %>
+      <%# new todo %>
+      <%= render "todos/form", campaign: @campaign, todo: @todo %>
+    </div>
 
 
-<h3> DECISIONS </h3>
-<div class="decisions">
- <%# all comments %>
-  <%= render "decisions/decisions", decisions: @campaign.decisions, campaign: @campaign   %>
-  <%# new comment %>
-  <%= render "decisions/form", campaign: @campaign, decision: @decision %>
+    <h3> COMMENTS </h3>
+    <div class="comments">
+    <%# all comments %>
+      <%= render "campaigncomments/comments", comments: @campaign.campaigncomments, campaign: @campaign   %>
+      <%# new comment %>
+      <%= render "campaigncomments/form", campaign: @campaign, comment: @campaigncomment %>
+    </div>
+
+
+    <h3> DECISIONS </h3>
+    <div class="decisions">
+    <%# all comments %>
+      <%= render "decisions/decisions", decisions: @campaign.decisions, campaign: @campaign   %>
+      <%# new comment %>
+      <%= render "decisions/form", campaign: @campaign, decision: @decision %>
+    </div>
+
 </div>

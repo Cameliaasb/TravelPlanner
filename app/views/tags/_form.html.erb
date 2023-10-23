@@ -1,4 +1,4 @@
 <%= simple_form_for [campaign, tag] do |f| %>
-  <%= f.input :title %>
-  <%= f.button :submit, value: "New tag" %>
+  <%= f.input :title, label: false, class:"tag", placeholder: "New tag" %>
+  <%= f.button :submit, value: "+", class:"text-white" %>
 <% end %>

@@ -1,0 +1,10 @@
+.block {
+  background-color:     $light-gray;
+  box-shadow:           3px 3px 1px 0px $green;
+  padding:              16px;
+
+  .form-control {
+    background-color:   $transparent;
+    padding:            0;
+  }
+}

@@ -7,7 +7,7 @@
 // General style
 $font-family-sans-serif: $body-font;
 $headings-font-family:   $headers-font;
-$body-bg:                $light-gray;
+$body-bg:                white;
 $font-size-base:         1rem;
 
 // Colors
@@ -35,9 +35,7 @@ $border-radius-sm:    2px;
   box-shadow:         none;
 }
 
-.form-control {
-  text-align:         center;
-}
+
 
 
 // not display the number stepper
@@ -50,4 +48,8 @@ input[type=number]::-webkit-outer-spin-button {
 // not pointer cursos when it's readonly
 .flatpickr-input[readonly] {
   cursor:             auto;
+}
+
+.form-control {
+  border:             none !important;
 }
