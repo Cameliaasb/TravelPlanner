@@ -1,28 +1,21 @@
-.big-title {
-  width: 100%;
-  height:fit-content;
-  background-color: $main-color;
-  padding: 18px;
+// overriding bootstrap and simple form CSS:
 
-  #campaign_title, #campaign_estimated_duration {
-    background-color: $main-color;
-    border: none;
-    font-size: 2rem;
-  }
+.form-control.is-valid {
+  background-image: url("https://cdn-icons-png.flaticon.com/128/1828/1828911.png");
+  background-size: 1rem;
+  min-width: fit-content;
+}
 
-  .form-control.is-valid {
-    background-image: url("https://cdn-icons-png.flaticon.com/128/1828/1828911.png");
-    background-size: 1rem;
-    width: fit-content;
-  }
+.form-control:focus {
+  box-shadow: none;
+}
 
-  .form-control:focus {
-    box-shadow: none;
-  }
-
+.form-control {
+  text-align: center;
 }
 
 
+// not display the number stepper
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;

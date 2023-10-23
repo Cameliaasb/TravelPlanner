@@ -1,6 +1,47 @@
 
 <%= simple_form_for campaign, data: { controller: "form", form_owner_value: owner } do |f| %>
-  <%= f.input :title, label: false, disabled: !owner, input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}  %>
-  <%= f.input :estimated_duration, label: false, disabled: !owner, input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}  %>
-  <%= f.button :submit, value:"Save changes", data: {form_target:"saveBtn"}, class:"btn-primary d-none" if owner %>
+
+  <div class="header-layout">
+
+    <div class="title-block">
+
+    <%= f.input   :title, label: false, disabled: !owner,
+                  input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}
+                  %>
+    <div class="d-flex">
+      <div class="label"> #nights </div>
+      <%= f.input   :estimated_duration, label: false, disabled: !owner, as: :integer,
+                    input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}
+                    %>
+    </div>
+
+    <div class="label"> by <%= campaign.expert.username %> </div>
+
+    </div>
+    <div data-controller="datepicker" class="date-block">
+      <div class="d-flex">
+        <div class="label">From </div>
+        <%= f.input   :start_date, label: false, disabled: !owner, as: :string,
+                      input_html: { data: {
+                        form_target:"input", action:"change->form#display_btn",
+                        datepicker_target:"start"
+                        }}
+                      %>
+      </div>
+      <div class="d-flex">
+        <div class="label"> To</div>
+        <%= f.input   :end_date, label: false, disabled: !owner, as: :string,
+                      input_html: { data: {
+                        form_target:"input", action:"change->form#display_btn",
+                        datepicker_target:"end"
+                        }}
+                      %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.button  :submit, value:"Save changes", class:"btn-primary d-none",
+                data: {form_target:"saveBtn"} if owner
+                %>
+
 <% end %>

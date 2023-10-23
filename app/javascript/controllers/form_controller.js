@@ -10,8 +10,6 @@ export default class extends Controller {
   connect() {
     // Removes crayon next to editable fields according to access
     this.owner_access()
-    console.log(this.inputTargets)
-    console.log(this.saveBtnTarget)
   }
 
   owner_access() {
