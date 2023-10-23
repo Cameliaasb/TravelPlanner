@@ -3,64 +3,60 @@
     <%= render "campaigns/form", campaign: @campaign, owner: @owner %>
 </div>
 
-<div class="container top-padding row">
+<div class="container top-padding">
+  <div class="row">
 
-<div class="col-6">
-  <div class="block">
-    <%# Campaign description, editable by owner %>
-    <%= simple_form_for @campaign, data: { controller: "form", form_access_value: @owner } do |f| %>
-      <%= f.input     :description, label: false, disabled: !@owner,
-                      input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}
-                      %>
-    <% end %>
+    <div class="col">
 
-    <%# all tags %>
-    <div class="tags">
-      <%= render "tags/tags", tags: @campaign.tags, campaign: @campaign %>
-      <%# new tag %>
-      <%= render "tags/form", campaign: @campaign, tag: @tag if @owner%>
-    </div>
-  </div>
+      <div class="block">
+        <%# Campaign description, editable by owner %>
+        <%= simple_form_for @campaign, data: { controller: "form", form_access_value: @owner } do |f| %>
+          <%= f.input     :description, label: false, disabled: !@owner,
+                          input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}
+                          %>
+        <% end %>
 
-
-
-  <div class="decisions" data-controller="toggle">
-    <%# all decisions are editable by experts %>
-    <%= render "decisions/decisions", decisions: @campaign.decisions, campaign: @campaign, access: @expert %>
-
-    <%# new decision %>
-    <% if @expert %>
-      <div class="d-flex justify-content-end">
-        <div data-action="click->toggle#toggle" class="btn btn-primary margin-x"> Add a new decision </div>
+        <%# all tags %>
+        <div class="tags">
+          <%= render "tags/tags", tags: @campaign.tags, campaign: @campaign %>
+          <%# new tag only by owner %>
+          <%= render "tags/form", campaign: @campaign, tag: @tag if @owner%>
+        </div>
       </div>
 
-      <%= render "decisions/new_form", campaign: @campaign, decision: @decision %>
-    <% end %>
+
+      <div class="decisions" data-controller="toggle">
+        <%# all decisions are editable by experts %>
+        <%= render "decisions/decisions", decisions: @campaign.decisions, campaign: @campaign, access: @expert %>
+
+        <%# new decision %>
+        <% if @expert %>
+          <div class="d-flex justify-content-end">
+            <div data-action="click->toggle#toggle" class="btn btn-primary margin-x"> Add a new decision </div>
+          </div>
+
+          <%= render "decisions/new_form", campaign: @campaign, decision: @decision %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="todos">
+          <%# all todos %>
+          <%= render "todos/todos", todos: @campaign.todos, comment: @comment %>
+          <%# new todo %>
+          <%= render "todos/form", campaign: @campaign, todo: @todo %>
+        </div>
+
+
+        <h3> COMMENTS </h3>
+        <div class="comments">
+        <%# all comments %>
+          <%= render "campaigncomments/comments", comments: @campaign.campaigncomments, campaign: @campaign   %>
+          <%# new comment %>
+          <%= render "campaigncomments/form", campaign: @campaign, comment: @campaigncomment %>
+        </div>
+    </div>
+
   </div>
-</div>
-
-<div class="col-6">
-
-    <h3> TODOS </h3>
-
-    <div class="todos">
-      <%# all todos %>
-      <%= render "todos/todos", todos: @campaign.todos, comment: @comment %>
-      <%# new todo %>
-      <%= render "todos/form", campaign: @campaign, todo: @todo %>
-    </div>
-
-
-    <h3> COMMENTS </h3>
-    <div class="comments">
-    <%# all comments %>
-      <%= render "campaigncomments/comments", comments: @campaign.campaigncomments, campaign: @campaign   %>
-      <%# new comment %>
-      <%= render "campaigncomments/form", campaign: @campaign, comment: @campaigncomment %>
-    </div>
-
-
-
-</div>
-
 </div>

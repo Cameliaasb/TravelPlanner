@@ -1,12 +1,11 @@
-.tags {
+.tags, .todos {
   display:          flex;
   flex-wrap:        wrap;
   gap:              1rem;
 }
 
 
-.tag, #new_tag {
-  color:            white !important;
+.tag, #new_tag, .todo {
   max-width:         fit-content;
   padding:           0px 8px;
   text-align:        center;
@@ -28,8 +27,18 @@
 
 #new_tag {
   background-color: $blue;
+  color:            white !important;
 }
 
 .tag {
   background-color: $green;
+  color:            white !important;
+}
+
+.todo {
+  background-color: $light-gray;
+  box-shadow:       3px 3px 1px 0px $red;
+  color:            black;
+  font-weight:       bold;
+  text-align:        center;
 }

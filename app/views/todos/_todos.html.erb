@@ -2,15 +2,9 @@
   <div class="todo">
 
     <%= todo.content %>
-    <h3> ---</h3>
-    <%= render "comments/comments", todo: todo, owner: @owner  %>
-    <%= render "comments/form", todo: todo, comment: comment %>
-    <h3> ---</h3>
-
     <% if @owner %>
-      <div class="delete-btn">
-        <%= link_to "Delete", todo_path(todo), data: {turbo_method: :delete} %>
-      </div>
+      <%= link_to "x", todo_path(todo), class:"delete-btn text-dark", data: {turbo_method: :delete} %>
     <% end%>
+
   </div>
 <% end %>

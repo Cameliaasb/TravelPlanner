@@ -3,9 +3,7 @@
   <div class="tag">
     <%= tag.title  %>
     <% if @owner %>
-      <div  class="delete-btn">
-        <%= link_to "x", campaign_tag_path(campaign, tag), class:"delete-btn", data: {turbo_method: :delete } %>
-      </div>
+      <%= link_to "x", campaign_tag_path(campaign, tag), class:"delete-btn", data: {turbo_method: :delete } %>
     <% end%>
   </div>
 
