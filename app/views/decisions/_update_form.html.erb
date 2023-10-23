@@ -4,7 +4,7 @@
   <%= f.input :content, label: false, disabled: !access, input_html: { data: {form_target:"input", action:"keyup->form#display_btn" }} %>
 
   <div class="d-flex justify-content-end">
-    <%= button_tag(type: 'submit', class: "d-none btn text-end p-0 pe-2" , data: { form_target:"saveBtn"}) do %>
+    <%= button_tag(type: 'submit', class: "d-none btn p-0 pe-2" , data: { form_target:"saveBtn"}) do %>
       <i class="fa-solid fa-check"></i>
     <% end %>
 

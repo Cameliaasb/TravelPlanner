@@ -3,8 +3,9 @@
     <%= render "campaigns/form", campaign: @campaign, owner: @owner %>
 </div>
 
-<div class="container top-padding">
+<div class="container top-padding row">
 
+<div class="col-6">
   <div class="block">
     <%# Campaign description, editable by owner %>
     <%= simple_form_for @campaign, data: { controller: "form", form_access_value: @owner } do |f| %>
@@ -23,13 +24,22 @@
 
 
 
-  <div class="decisions">
+  <div class="decisions" data-controller="toggle">
     <%# all decisions are editable by experts %>
     <%= render "decisions/decisions", decisions: @campaign.decisions, campaign: @campaign, access: @expert %>
 
     <%# new decision %>
-    <%= render "decisions/new_form", campaign: @campaign, decision: @decision if @expert %>
+    <% if @expert %>
+      <div class="d-flex justify-content-end">
+        <div data-action="click->toggle#toggle" class="btn btn-primary margin-x"> Add a new decision </div>
+      </div>
+
+      <%= render "decisions/new_form", campaign: @campaign, decision: @decision %>
+    <% end %>
   </div>
+</div>
+
+<div class="col-6">
 
     <h3> TODOS </h3>
 
@@ -51,5 +61,6 @@
 
 
 
+</div>
 
 </div>

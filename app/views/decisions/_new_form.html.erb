@@ -1,7 +1,13 @@
-<div class="block">
+<div class="block d-none" data-toggle-target="form">
+
   <%= simple_form_for [campaign, decision] do |f| %>
-    <%= f.input :title, label: false %>
-    <%= f.input :content, label: false %>
-    <%= f.button :submit, value: "New decision" %>
+    <%= f.input :title, label: false, placeholder: "Enter decision title" %>
+    <%= f.input :content, label: false, placeholder: "Enter decision details" %>
+    <div class="d-flex justify-content-end">
+      <%= button_tag(type: 'submit', class: "btn p-0 pe-2 ") do %>
+        save <i class="fa-solid fa-check"></i>
+      <% end %>
+    </div>
   <% end %>
+
 </div>
