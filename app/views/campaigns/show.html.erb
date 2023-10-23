@@ -1,4 +1,5 @@
 <div class="header">
+    <%# Owner can edit campaign, otherwise it's readonly %>
     <%= render "campaigns/form", campaign: @campaign, owner: @owner %>
 </div>
 
@@ -9,21 +10,6 @@
   <%# new tag %>
   <%= render "tags/form", campaign: @campaign, tag: @tag %>
 </div>
-
-<% if @owner %>
-<h3> OWNER ACTIONS </h3>
-
-  <%# Owner can edit campaign %>
-  <div class="form-container">
-  </div>
-
-  <%# Owner can delete campaign %>
-  <%= link_to "Delete",
-    campaign_path(@campaign),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-
-<% end %>
 
 
 <h3> TODOS </h3>
