@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_23_150101) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_24_131619) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,6 +76,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_150101) do
     t.index ["expert_id"], name: "index_tags_on_expert_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.boolean "done"
+    t.bigint "todo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["todo_id"], name: "index_tasks_on_todo_id"
+  end
+
   create_table "todos", force: :cascade do |t|
     t.string "content", null: false
     t.boolean "done", default: false
@@ -83,6 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_150101) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
     t.index ["campaign_id"], name: "index_todos_on_campaign_id"
     t.index ["user_id"], name: "index_todos_on_user_id"
   end
