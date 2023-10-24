@@ -1,0 +1,21 @@
+.comments {
+  border:               1px solid $gray;
+  padding:              8px 8px 8px 0px;
+  margin:               16px;
+  max-height: 50vh;
+  overflow: scroll;
+}
+
+.comment {
+  background-color:     $light-gray;
+  margin:               16px;
+  padding:              8px;
+
+  .comment-user {
+    font-weight:        bold;
+  }
+  .comment-date {
+    font-size:          small;
+    color:            rgba(0, 0, 0, 0.501);
+  }
+}

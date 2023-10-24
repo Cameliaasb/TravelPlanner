@@ -48,8 +48,6 @@
           <%= link_to "+", new_todo_path(campaign: @campaign.id), id:"new_todo_link", class:"text-decoration-none text-white" %>
         </div>
 
-
-        <h3> COMMENTS </h3>
         <div class="comments">
         <%# all comments %>
           <%= render "campaigncomments/comments", comments: @campaign.campaigncomments, campaign: @campaign   %>

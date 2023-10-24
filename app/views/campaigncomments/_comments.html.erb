@@ -1,10 +1,13 @@
 <%  comments.each do |comment| %>
   <div class="comment">
-    <%= comment.title %>
-    <% if @owner %>
-      <div class="delete-btn">
-        <%= link_to "Delete", campaign_campaigncomment_path(campaign, comment), data: {turbo_method: :delete} %>
-      </div>
-    <% end%>
+    <div class="d-flex justify-content-between">
+      <div class="comment-user">  <%= comment.user.username %></div>
+      <% if @owner %>
+          <%= link_to "x", campaign_campaigncomment_path(campaign, comment), class:"delete-btn text-dark", data: {turbo_method: :delete} %>
+      <% end%>
+    </div>
+    <%= comment.title%>
+    <div class="comment-date"><%= "#{time_ago_in_words(comment.created_at)} ago"  %> </div>
+
   </div>
 <% end %>
