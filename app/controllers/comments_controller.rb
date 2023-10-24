@@ -7,7 +7,11 @@ class CommentsController < ApplicationController
     @campaign = @comment.todo.campaign
 
     if @comment.save
-      redirect_to @campaign, notice: "New comment created"
+      ChatroomChannel.broadcast_to(
+        @chatroom,
+        render_to_string(partial: "comments/comment", locals: { comment: @comment })
+      )
+      head :ok
     else
       redirect_to @campaign, alert: "Something went wrong, try again"
     end

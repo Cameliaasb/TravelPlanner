@@ -4,7 +4,7 @@ import { createConsumer } from "@rails/actioncable"
 
 // Connects to data-controller="chatroom"
 export default class extends Controller {
-  static values = { chatroomId: Number }
+  static values = { chatroomId: Number, controller: String }
   static targets = ["comments"]
 
   connect() {
@@ -14,7 +14,6 @@ export default class extends Controller {
     )
     this.#scrollDown()
   }
-
 
   #insertMessageAndScrollDown(data) {
     this.commentsTarget.insertAdjacentHTML("beforeend", data)

@@ -54,12 +54,12 @@
             <%# all comments %>
             <div data-chatroom-target="comments">
               <%  @campaign.campaigncomments.each do |comment| %>
-                <%= render "campaigncomments/comment", comment: comment, campaign: @campaign   %>
+                <%= render "comments/comment", comment: comment, campaign: @campaign, path: campaign_campaigncomment_path(@campaign, comment)   %>
               <% end %>
             </div>
 
             <%# new comment %>
-            <%= render "campaigncomments/form", campaign: @campaign, comment: @campaigncomment %>
+            <%= render "comments/form", parent: @campaign, comment: @campaigncomment %>
           </div>
       </div>
 

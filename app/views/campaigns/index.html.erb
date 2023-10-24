@@ -2,7 +2,7 @@
 <div class="container index-grid">
   <% @campaigns.each do |campaign| %>
 
-    <div class="block">
+    <div class="block campaign">
       <%= link_to campaign_path(campaign) do %>
         <div class="title"> <%= campaign.title %> </div>
         <div  class="text-dark">

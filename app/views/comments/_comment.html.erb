@@ -1,8 +1,8 @@
-<div class="comment" id="campaigncomment-<%= comment.id %>">
+<div class="comment" id="comment-<%= comment.id %>">
   <div class="d-flex justify-content-between">
     <div class="comment-user">  <%= comment.user.username %></div>
     <% if @owner %>
-        <%= link_to "x", campaign_campaigncomment_path(campaign, comment), class:"delete-btn text-dark", data: {turbo_method: :delete} %>
+        <%= link_to "x", path, class:"delete-btn text-dark", data: {turbo_method: :delete} %>
     <% end%>
   </div>
   <%= comment.title%>

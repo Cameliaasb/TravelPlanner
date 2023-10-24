@@ -1,2 +1,14 @@
-<%= render "comments/comments", todo: @todo, owner: @owner  %>
-<%= render "comments/form", todo: @todo, comment: @comment %>
+<div data-controller="chatroom" data-chatroom-chatroom-id-value="<%= @todo.id %>">
+
+  <div class="container">
+    <div class="comments">
+    <div>
+      <% @todo.comments.each do |comment|  %>
+        <%= render "comments/comment", todo: @todo, owner: @owner, comment: comment, path: todo_comment_path(@todo, comment) %>
+      <% end %>
+    </div>
+      <%= render "comments/form", parent: @todo, comment: @comment %>
+    </div>
+
+  </div>
+</div>

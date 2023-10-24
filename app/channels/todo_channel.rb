@@ -1,6 +1,6 @@
-class ChatroomChannel < ApplicationCable::Channel
+class TodoChannel < ApplicationCable::Channel
   def subscribed
-    chatroom = Campaign.find(params[:id])
+    chatroom = Todo.find(params[:id])
     stream_for chatroom
   end
 

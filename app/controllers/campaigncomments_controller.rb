@@ -8,7 +8,7 @@ class CampaigncommentsController < ApplicationController
     if @comment.save
       ChatroomChannel.broadcast_to(
         @campaign,
-        render_to_string(partial: "campaigncomments/comment", locals: { comment: @comment })
+        render_to_string(partial: "comments/comment", locals: { comment: @comment })
       )
       head :ok
     else

@@ -1,10 +1,11 @@
 <%  todos.each do |todo| %>
-  <div class="todo">
 
-    <%= todo.content %>
-    <% if @owner %>
-      <%= link_to "x", todo_path(todo), class:"delete-btn text-dark", data: {turbo_method: :delete} %>
-    <% end%>
-
+  <%= link_to todo_path(todo) do %>
+    <div class="todo">
+      <div class="text-dark"> <%= todo.content %> </div>
+      <% if @owner %>
+        <%= link_to "x", todo_path(todo), class:"delete-btn text-dark", data: {turbo_method: :delete} %>
+      <% end%>
+    <% end %>
   </div>
 <% end %>
