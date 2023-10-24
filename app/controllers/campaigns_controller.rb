@@ -12,8 +12,6 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
 
     @campaigncomment = Campaigncomment.new
-    @todo = Todo.new
-    @comment = Comment.new
     @decision = Decision.new
 
     # Used in view to give access to owner only for : edit campaign / add or delete tag

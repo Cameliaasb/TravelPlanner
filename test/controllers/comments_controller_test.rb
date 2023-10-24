@@ -10,19 +10,19 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
   test "setup is OK " do
     login_as @novice_user
-    get campaign_url(@campaign_toto)
+    get todo_url(@todo)
     assert_response :success
   end
 
   test "Any user can comment on a todo" do
     login_as @novice_user
-    get campaign_url(@campaign_toto)
+    get todo_url(@todo)
     assert_difference('Comment.count') do
       post todo_comments_path(@todo), params: { comment: { title: "New comment", todo_id: @todo.id } }
     end
 
     login_as @expert_user
-    get campaign_url(@campaign_toto)
+    get todo_url(@todo)
     assert_difference('Comment.count') do
       post todo_comments_path(@todo), params: { comment: { title: "New comment", todo_id: @todo.id } }
     end
@@ -30,7 +30,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
   test "Campaign owner can delete a comment" do
     login_as @expert_user
-    get campaign_url(@campaign_toto)
+    get todo_url(@todo)
 
     assert_select ".todo-comment" do
       assert_select ".delete-btn"
@@ -39,7 +39,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
   test "Only campaign owner can delete a comment" do
     login_as @novice_user
-    get campaign_url(@campaign_toto)
+    get todo_url(@todo)
 
     assert_select ".todo-comment" do
       assert_select ".delete-btn", count: 0

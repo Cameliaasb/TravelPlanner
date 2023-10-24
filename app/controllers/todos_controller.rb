@@ -4,8 +4,14 @@ class TodosController < ApplicationController
     @todo = Todo.new
   end
 
+  def show
+    @todo = Todo.find(params[:id])
+    @comment = Comment.new
+    @owner = (current_user == @todo.campaign.expert)
+  end
+
   def create
-    ## New is in campaigns#index, all users can create todos
+    ## New is linked campaigns#show, all users can create todos
     @todo = Todo.new(todo_params)
     @todo.user = current_user
 
