@@ -20,7 +20,7 @@
         <div class="tags">
           <%= render "tags/tags", tags: @campaign.tags, campaign: @campaign %>
           <%# new tag only by owner %>
-          <%= render "tags/form", campaign: @campaign, tag: @tag if @owner%>
+          <%= render "tags/new_form", campaign: @campaign, tag: @tag if @owner%>
         </div>
       </div>
 
@@ -45,7 +45,7 @@
           <%# all todos %>
           <%= render "todos/todos", todos: @campaign.todos, comment: @comment %>
           <%# new todo %>
-          <%= render "todos/form", campaign: @campaign, todo: @todo %>
+          <%= link_to "+", new_todo_path(campaign: @campaign.id), id:"new_todo_link", class:"text-decoration-none text-white" %>
         </div>
 
 

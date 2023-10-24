@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :todos, only: %i[create destroy] do
+  resources :todos, only: %i[new create destroy] do
     resources :comments, only: %i[create destroy]
   end
 end

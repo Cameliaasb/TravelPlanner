@@ -5,9 +5,8 @@
 }
 
 
-.tag, #new_tag, .todo {
+.tag, #new_tag, .todo, #new_todo {
   max-width:         fit-content;
-  padding:           0px 8px;
   text-align:        center;
   display:           flex;
   justify-content:   space-between;
@@ -25,20 +24,42 @@
   }
 }
 
+
+#new_tag, .tag {
+  color:            white !important;
+  padding:           0px 8px;
+}
+
 #new_tag {
   background-color: $blue;
-  color:            white !important;
 }
 
 .tag {
   background-color: $green;
-  color:            white !important;
 }
+
+
+.todo, #new_todo_link {
+  box-shadow:       3px 3px 1px 0px $red;
+  padding:          4px 10px;
+}
+
 
 .todo {
   background-color: $light-gray;
-  box-shadow:       3px 3px 1px 0px $red;
   color:            black;
   font-weight:       bold;
   text-align:        center;
+}
+
+#new_todo_link {
+  background-color: $red;
+
+  .form-control {
+    background-color: $transparent;
+  }
+
+  .form-control:focus {
+    box-shadow: none;
+  }
 }

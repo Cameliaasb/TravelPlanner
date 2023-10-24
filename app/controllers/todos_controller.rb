@@ -1,4 +1,9 @@
 class TodosController < ApplicationController
+
+  def new
+    @todo = Todo.new
+  end
+
   def create
     ## New is in campaigns#index, all users can create todos
     @todo = Todo.new(todo_params)
