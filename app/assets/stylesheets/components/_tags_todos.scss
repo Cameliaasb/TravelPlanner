@@ -19,7 +19,7 @@
   border-radius:     $border-radius-sm;
 
   .form-control::placeholder, .form-control {
-    color:         white;
+    color:           $light-gray;
     width:           80px;
   }
 

@@ -1,5 +1,5 @@
 <%= simple_form_for [campaign, comment], html: { data: { action: "turbo:submit-end->chatroom#resetForm" }, class:"new-comment" } do |f| %>
-  <%= f.input :title, label: false %>
+  <%= f.input :title, label: false, placeholder:"New message" %>
   <%= button_tag(type: 'submit', class: "send-btn") do %>
     <i class="fa-solid fa-comment"></i>
   <% end %>

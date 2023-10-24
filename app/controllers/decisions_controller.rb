@@ -6,9 +6,9 @@ class DecisionsController < ApplicationController
     @decision.expert = current_user if expert?
     @campaign = @decision.campaign
     if @decision.save
-      redirect_to @decision.campaign, notice: "Decision created"
+      redirect_to @decision.campaign, notice: "Post added to feed"
     else
-      redirect_to @campaign, alert: "Something went wrong, try again"
+      redirect_to @campaign, alert: "Something went wrong, make sure you have entered a title and description"
     end
   end
 
@@ -16,10 +16,11 @@ class DecisionsController < ApplicationController
     # for expert users only, handled through view
     @decision = Decision.find(params[:id])
     @decision.update(decision_params)
+    @campaign = @decision.campaign
     if @decision.save
-      redirect_to @decision.campaign, notice: "Decision updated"
+      redirect_to @campaign, notice: "Decision updated"
     else
-      redirect_to @campaign, alert: "Something went wrong, try again"
+      redirect_to @campaign, alert: "Title or description cannot be blank"
     end
   end
 
