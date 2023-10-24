@@ -9,7 +9,7 @@
 }
 
 
-.tag, #new_tag, .todo, #new_todo {
+.tag, #new_tag, .todo, #new_todo_link {
   max-width:         fit-content;
   text-align:        center;
   display:           flex;
@@ -57,13 +57,13 @@
 }
 
 #new_todo_link {
-  background-color: $red;
+  background-color:   $red;
 
   .form-control {
     background-color: $transparent;
   }
 
   .form-control:focus {
-    box-shadow: none;
+    box-shadow:       none;
   }
 }

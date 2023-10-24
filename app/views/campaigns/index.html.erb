@@ -22,7 +22,7 @@
   <% end %>
 
   <% if current_user.instance_of?(Expert) %>
-    <div class="form-container">
+    <div class="block text-center new-campaign">
       <%= render "new_form", campaign: @campaign %>
     </div>
   <% end %>

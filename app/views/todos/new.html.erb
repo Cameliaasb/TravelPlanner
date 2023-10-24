@@ -1,5 +1,10 @@
-<%= simple_form_for @todo do |f| %>
-  <%=f.input :campaign_id, as: :hidden, input_html: { value: params[:campaign] } %>
-  <%= f.input :content, label: false, class:"todo", placeholder: "new" %>
-  <%= f.button :submit, value: "+", class:"text-white" %>
-<% end %>
+<div class="container">
+  <%= simple_form_for @todo do |f| %>
+    <div class="block">
+      <%= f.input :campaign_id, as: :hidden, input_html: { value: params[:campaign] } %>
+      <%= f.input :content, label: false, placeholder: "Add a title" %>
+      <%= f.input :description, label: false, placeholder: "Add a description" %>
+      <%= f.button :submit, value: "New subject to discuss", class:"btn-primary" %>
+    </div>
+  <% end %>
+</div>

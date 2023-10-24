@@ -16,9 +16,9 @@ class TodosController < ApplicationController
     @todo.user = current_user
 
     if @todo.save
-      redirect_to @todo.campaign, notice: "New task created"
+      redirect_to @todo.campaign, notice: "New subject created"
     else
-      redirect_to @todo.campaign, alert: "Something went wrong, try again"
+      redirect_to @todo.campaign, alert: "Something went wrong, make sure the subject has a title"
     end
   end
 
