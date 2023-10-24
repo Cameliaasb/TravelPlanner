@@ -1,18 +1,30 @@
-<% @campaigns.each do |campaign| %>
-  <div class="campaign">
-    <div class="title"> <%= campaign.title %> </div>
 
-    <div class="tags">
-      <% campaign.tags.each do |tag| %>
-        <%= tag.title  %>
-      <% end%>
+<div class="container index-grid">
+  <% @campaigns.each do |campaign| %>
+
+    <div class="block">
+      <%= link_to campaign_path(campaign) do %>
+        <div class="title"> <%= campaign.title %> </div>
+        <div  class="text-dark">
+          <div> <strong>From: </strong> <%= campaign.start_date %></div>
+          <div> <strong>To:</strong> <%= campaign.end_date %></div>
+        </div>
+        <div class="tags pt-2">
+          <% campaign.tags.each do |tag| %>
+          <div class="tag">
+            <%= tag.title  %>
+          </div>
+          <% end%>
+        </div>
+
+      <% end %>
     </div>
-  </div>
+  <% end %>
 
-<% end %>
+  <% if current_user.instance_of?(Expert) %>
+    <div class="form-container">
+      <%= render "new_form", campaign: @campaign %>
+    </div>
+  <% end %>
 
-<% if current_user.instance_of?(Expert) %>
-  <div class="form-container">
-    <%# <%= render "form", campaign: @campaign, owner: @owner %>
-  </div>
-<% end %>
+</div>

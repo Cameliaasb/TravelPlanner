@@ -3,6 +3,7 @@
   margin:               16px;
   height:               50vh;
   overflow:             scroll;
+  position: relative;
 }
 
 .comment {
@@ -25,6 +26,9 @@
   background-color:   $green;
   padding:            8px 16px;
   gap:                8px;
+  position:           absolute;
+  bottom:             0px;
+  width:              100%;
 
   .btn {
     padding:          0px;

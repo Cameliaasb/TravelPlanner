@@ -12,3 +12,14 @@
   margin-right:     13px; // 16px - 3px of box-shadow for other divs
   margin-left:      13px;
 }
+
+
+.index-grid {
+  display:          flex;
+  flex-wrap:        wrap;
+  gap:              4%;
+
+  .block {
+    flex-basis:     42%;
+  }
+}

@@ -1,0 +1,10 @@
+<%= simple_form_for campaign do |f| %>
+
+  <%= f.input     :title, label: false,
+                  input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}
+                  %>
+
+  <%= f.button  :submit, value:"Save changes", class:"btn-primary d-none"
+                %>
+
+<% end %>

@@ -13,7 +13,7 @@
         <div class="block">
           <%# Campaign description, editable by owner %>
           <%= simple_form_for @campaign, data: { controller: "form", form_access_value: @owner } do |f| %>
-            <%= f.input     :description, label: false, disabled: !@owner,
+            <%= f.input     :description, label: false, disabled: !@owner, placeholder: "Add a description",
                             input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}
                             %>
           <% end %>
