@@ -17,14 +17,14 @@ class CampaigncommentsControllerTest < ActionDispatch::IntegrationTest
   test "Any user can comment on a campaign" do
     login_as @novice_user
     get campaign_url(@campaign_toto)
-    assert_select "input[type=submit][value='New comment']"
+    assert_select "input[name='campaigncomment[title]']"
     assert_difference('Campaigncomment.count') do
       post campaign_campaigncomments_path(@campaign_toto), params: { campaigncomment: { title: "New comment", campaign_id: @campaign_toto.id } }
     end
 
     login_as @toto_expert_user
     get campaign_url(@campaign_toto)
-    assert_select "input[type=submit][value='New comment']"
+    assert_select "input[name='campaigncomment[title]']"
     assert_difference('Campaigncomment.count') do
       post campaign_campaigncomments_path(@campaign_toto), params: { campaigncomment: { title: "New comment", campaign_id: @campaign_toto.id } }
     end

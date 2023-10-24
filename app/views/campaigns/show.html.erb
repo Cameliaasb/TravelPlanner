@@ -32,12 +32,12 @@
           <%= render "decisions/decisions", decisions: @campaign.decisions, campaign: @campaign, access: @expert %>
 
           <%# new decision %>
+          <%= render "decisions/new_form", campaign: @campaign, decision: @decision %>
           <% if @expert %>
             <div class="d-flex justify-content-end">
               <div data-action="click->toggle#toggle" class="btn btn-primary margin-x"> Add a new decision </div>
             </div>
 
-            <%= render "decisions/new_form", campaign: @campaign, decision: @decision %>
           <% end %>
         </div>
       </div>
