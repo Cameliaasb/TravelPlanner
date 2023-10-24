@@ -1,4 +1,6 @@
-<%= simple_form_for [campaign, comment] do |f| %>
-  <%= f.input :title %>
-  <%= f.button :submit, value: "New comment" %>
+<%= simple_form_for [campaign, comment], html: { data: { action: "turbo:submit-end->chatroom#resetForm" }, class:"new-comment" } do |f| %>
+  <%= f.input :title, label: false %>
+  <%= button_tag(type: 'submit', class: "send-btn") do %>
+    <i class="fa-solid fa-comment"></i>
+  <% end %>
 <% end %>

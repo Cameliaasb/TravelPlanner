@@ -1,60 +1,69 @@
-<div class="header">
-    <%# Owner can edit and delete campaign, otherwise it's readonly %>
-    <%= render "campaigns/form", campaign: @campaign, owner: @owner %>
-</div>
+<div data-controller="chatroom" data-chatroom-chatroom-id-value="<%= @campaign.id %>">
 
-<div class="container top-padding">
-  <div class="row">
+  <div class="header">
+      <%# Owner can edit and delete campaign, otherwise it's readonly %>
+      <%= render "campaigns/form", campaign: @campaign, owner: @owner %>
+  </div>
 
-    <div class="col">
+  <div class="container top-padding">
+    <div class="row">
 
-      <div class="block">
-        <%# Campaign description, editable by owner %>
-        <%= simple_form_for @campaign, data: { controller: "form", form_access_value: @owner } do |f| %>
-          <%= f.input     :description, label: false, disabled: !@owner,
-                          input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}
-                          %>
-        <% end %>
+      <div class="col">
 
-        <%# all tags %>
-        <div class="tags">
-          <%= render "tags/tags", tags: @campaign.tags, campaign: @campaign %>
-          <%# new tag only by owner %>
-          <%= render "tags/new_form", campaign: @campaign, tag: @tag if @owner%>
+        <div class="block">
+          <%# Campaign description, editable by owner %>
+          <%= simple_form_for @campaign, data: { controller: "form", form_access_value: @owner } do |f| %>
+            <%= f.input     :description, label: false, disabled: !@owner,
+                            input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}
+                            %>
+          <% end %>
+
+          <%# all tags %>
+          <div class="tags">
+            <%= render "tags/tags", tags: @campaign.tags, campaign: @campaign %>
+            <%# new tag only by owner %>
+            <%= render "tags/new_form", campaign: @campaign, tag: @tag if @owner%>
+          </div>
+        </div>
+
+
+        <div class="decisions" data-controller="toggle">
+          <%# all decisions are editable by experts %>
+          <%= render "decisions/decisions", decisions: @campaign.decisions, campaign: @campaign, access: @expert %>
+
+          <%# new decision %>
+          <% if @expert %>
+            <div class="d-flex justify-content-end">
+              <div data-action="click->toggle#toggle" class="btn btn-primary margin-x"> Add a new decision </div>
+            </div>
+
+            <%= render "decisions/new_form", campaign: @campaign, decision: @decision %>
+          <% end %>
         </div>
       </div>
 
-
-      <div class="decisions" data-controller="toggle">
-        <%# all decisions are editable by experts %>
-        <%= render "decisions/decisions", decisions: @campaign.decisions, campaign: @campaign, access: @expert %>
-
-        <%# new decision %>
-        <% if @expert %>
-          <div class="d-flex justify-content-end">
-            <div data-action="click->toggle#toggle" class="btn btn-primary margin-x"> Add a new decision </div>
+      <div class="col">
+          <div class="todos">
+            <%# all todos %>
+            <%= render "todos/todos", todos: @campaign.todos, comment: @comment %>
+            <%# new todo %>
+            <%= link_to "+", new_todo_path(campaign: @campaign.id), id:"new_todo_link", class:"text-decoration-none text-white" %>
           </div>
 
-          <%= render "decisions/new_form", campaign: @campaign, decision: @decision %>
-        <% end %>
+          <div class="comments">
+            <%# all comments %>
+            <div data-chatroom-target="comments">
+              <%  @campaign.campaigncomments.each do |comment| %>
+                <%= render "campaigncomments/comment", comment: comment, campaign: @campaign   %>
+              <% end %>
+            </div>
+
+            <%# new comment %>
+            <%= render "campaigncomments/form", campaign: @campaign, comment: @campaigncomment %>
+          </div>
       </div>
+
     </div>
-
-    <div class="col">
-        <div class="todos">
-          <%# all todos %>
-          <%= render "todos/todos", todos: @campaign.todos, comment: @comment %>
-          <%# new todo %>
-          <%= link_to "+", new_todo_path(campaign: @campaign.id), id:"new_todo_link", class:"text-decoration-none text-white" %>
-        </div>
-
-        <div class="comments">
-        <%# all comments %>
-          <%= render "campaigncomments/comments", comments: @campaign.campaigncomments, campaign: @campaign   %>
-          <%# new comment %>
-          <%= render "campaigncomments/form", campaign: @campaign, comment: @campaigncomment %>
-        </div>
-    </div>
-
   </div>
+
 </div>

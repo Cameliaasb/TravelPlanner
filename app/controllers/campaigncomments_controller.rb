@@ -6,7 +6,11 @@ class CampaigncommentsController < ApplicationController
     @campaign = @comment.campaign
 
     if @comment.save
-      redirect_to @comment.campaign, notice: "Comment created"
+      ChatroomChannel.broadcast_to(
+        @campaign,
+        render_to_string(partial: "campaigncomments/comment", locals: { comment: @comment })
+      )
+      head :ok
     else
       redirect_to @campaign, alert: "Something went wrong, try again"
     end
@@ -18,6 +22,7 @@ class CampaigncommentsController < ApplicationController
     @comment.destroy
     redirect_to campaign_path(@campaign), status: :see_other
   end
+
 
   private
 
