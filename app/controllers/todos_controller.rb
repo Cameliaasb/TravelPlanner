@@ -16,9 +16,9 @@ class TodosController < ApplicationController
     @todo.user = current_user
 
     if @todo.save
-      redirect_to @todo.campaign, notice: "New subject created"
+      redirect_to @todo, notice: "New topic created"
     else
-      redirect_to @todo.campaign, alert: "Something went wrong, make sure the subject has a title"
+      redirect_to @todo.campaign, alert: "Something went wrong, make sure the topic has a title"
     end
   end
 
@@ -33,6 +33,6 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:content, :campaign_id)
+    params.require(:todo).permit(:content, :campaign_id, :description)
   end
 end

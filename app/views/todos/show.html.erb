@@ -1,13 +1,53 @@
 <div data-controller="chatroom" data-chatroom-chatroom-id-value="<%= @todo.id %>" data-chatroom-chatroom-name-value="TodoChannel">
 
+  <div class="header">
+      <%# Owner can edit and delete campaign, otherwise it's readonly %>
+      <%= render "campaigns/form", campaign: @todo.campaign, owner: @owner %>
+  </div>
+  <div class="todo-title">
+    <%= @todo.content %>
+  </div>
+
+
   <div class="container">
-    <div class="comments">
-    <div data-chatroom-target="comments">
-      <% @todo.comments.each do |comment|  %>
-        <%= render "comments/comment", todo: @todo, owner: @owner, comment: comment, path: todo_comment_path(@todo, comment) %>
-      <% end %>
-    </div>
-      <%= render "comments/form", parent: @todo, comment: @comment, placeholder: "New message concerning this topic" %>
+    <div class="row">
+
+      <div class="col" >
+        <%# description of todo page (topic) %>
+        <%= simple_form_for @todo do |f| %>
+          <div class="block" data-controller="form">
+            <%= f.input :description, label: false, as: :text,
+                input_html: {  data: {form_target:"input", action:"keyup->form#display_btn"}, rows: 5 },
+                placeholder: "Share your thoughts and ideas for discussion about this topic. Topics are where we come together to talk, plan, and organize important aspects of our trip." %>
+
+            <div class="d-flex justify-content-end">
+              <%= button_tag(type: 'submit', class: "d-none btn p-0 pe-2 ", data: {form_target: "saveBtn"}) do %>
+                save <i class="fa-solid fa-check"></i>
+              <% end %>
+            </div>
+
+          </div>
+
+        <% end %>
+
+        <%# to do list %>
+        <%# <div class="block">
+        <div class="title"> Tasks: </div>
+        </div> %>
+      </div>
+
+
+      <div class="col">
+        <div class="comments">
+          <div data-chatroom-target="comments">
+            <% @todo.comments.each do |comment|  %>
+              <%= render "comments/comment", todo: @todo, owner: @owner, comment: comment, path: todo_comment_path(@todo, comment) %>
+            <% end %>
+          </div>
+          <%= render "comments/form", parent: @todo, comment: @comment, placeholder: "New message concerning this topic" %>
+        </div>
+        </div>
+
     </div>
 
   </div>

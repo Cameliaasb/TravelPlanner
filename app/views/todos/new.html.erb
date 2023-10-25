@@ -3,7 +3,7 @@
     <div class="block">
       <%= f.input :campaign_id, as: :hidden, input_html: { value: params[:campaign] } %>
       <%= f.input :content, label: false, input_html: {class: "title"}, placeholder: "Topic title (ex: accommodation, co-driving, etc.)" %>
-      <%= f.input :description, label: false, as: :text, input_html: { rows: 5 }, placeholder: "The goal of topics is to discuss, plan, and organize key aspects of our trip, such as accommodation, co-driving, and food arrangements.
+      <%= f.input :description, label: false, as: :text, input_html: { rows: 5 }, placeholder: "Share your thoughts and ideas for discussion about this topic. Topics are where we come together to talk, plan, and organize important aspects of our trip.
 Use this space for chat and detailed to-do lists." %>
       <%= f.button :submit, value: "New topic to discuss", class:"btn-primary" %>
     </div>
