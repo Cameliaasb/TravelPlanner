@@ -1,8 +1,8 @@
-<div data-controller="chatroom" data-chatroom-chatroom-id-value="<%= @todo.id %>">
+<div data-controller="chatroom" data-chatroom-chatroom-id-value="<%= @todo.id %>" data-chatroom-chatroom-name-value="TodoChannel">
 
   <div class="container">
     <div class="comments">
-    <div>
+    <div data-chatroom-target="comments">
       <% @todo.comments.each do |comment|  %>
         <%= render "comments/comment", todo: @todo, owner: @owner, comment: comment, path: todo_comment_path(@todo, comment) %>
       <% end %>

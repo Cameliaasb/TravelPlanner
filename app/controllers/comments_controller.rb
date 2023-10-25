@@ -2,13 +2,15 @@ class CommentsController < ApplicationController
   def create
     ## New is in campaigns#index
     @comment = Comment.new(comment_params)
-    @comment.todo = Todo.find(params[:todo_id])
+    @todo = Todo.find(params[:todo_id])
+    @comment.todo = @todo
     @comment.user = current_user
+
     @campaign = @comment.todo.campaign
 
     if @comment.save
-      ChatroomChannel.broadcast_to(
-        @chatroom,
+      TodoChannel.broadcast_to(
+        @todo,
         render_to_string(partial: "comments/comment", locals: { comment: @comment })
       )
       head :ok

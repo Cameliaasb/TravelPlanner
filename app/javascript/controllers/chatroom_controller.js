@@ -4,12 +4,12 @@ import { createConsumer } from "@rails/actioncable"
 
 // Connects to data-controller="chatroom"
 export default class extends Controller {
-  static values = { chatroomId: Number, controller: String }
+  static values = { chatroomId: Number, chatroomName: String }
   static targets = ["comments"]
 
   connect() {
     this.channel = createConsumer().subscriptions.create(
-      { channel: "ChatroomChannel", id: this.chatroomIdValue },
+      { channel: this.chatroomNameValue, id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
     this.#scrollDown()
