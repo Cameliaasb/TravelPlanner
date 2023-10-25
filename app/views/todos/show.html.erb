@@ -1,6 +1,14 @@
 <div data-controller="chatroom" data-chatroom-chatroom-id-value="<%= @todo.id %>" data-chatroom-chatroom-name-value="TodoChannel">
 
-  <div class="header">
+  <div class="header"
+      style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("<%=
+      if @todo.campaign.photo.key
+        cl_image_path @todo.campaign.photo.key
+      else
+        image_path "travel.jpg"
+      end
+         %>")'
+      >
       <%# Owner can edit and delete campaign, otherwise it's readonly %>
       <%= render "campaigns/form", campaign: @todo.campaign, owner: @owner %>
   </div>

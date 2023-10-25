@@ -1,9 +1,25 @@
 
 <div class="container index-grid">
-  <% @campaigns.each do |campaign| %>
+  <% if current_user.instance_of?(Expert) %>
+    <div class="block text-center campaign new-campaign">
+      <%= render "new_form", campaign: @campaign %>
+    </div>
+  <% end %>
 
-    <div class="block campaign">
+
+  <% @campaigns.each do |campaign| %>
+    <div class="campaign">
       <%= link_to campaign_path(campaign) do %>
+
+      <div class="card-img">
+        <% if campaign.photo.key %>
+          <%= cl_image_tag(campaign.photo.key) %>
+        <% else %>
+          <%= image_tag("travel.jpg") %>
+        <% end %>
+      </div>
+
+      <div class="block">
         <div class="title"> <%= campaign.title %> </div>
         <div  class="text-dark">
           <div> <strong>From: </strong> <%= campaign.start_date %></div>
@@ -11,20 +27,17 @@
         </div>
         <div class="tags pt-2">
           <% campaign.tags.each do |tag| %>
-          <div class="tag">
-            <%= tag.title  %>
-          </div>
+            <div class="tag">
+              <%= tag.title  %>
+            </div>
           <% end%>
         </div>
+      </div>
+
 
       <% end %>
     </div>
   <% end %>
 
-  <% if current_user.instance_of?(Expert) %>
-    <div class="block text-center new-campaign">
-      <%= render "new_form", campaign: @campaign %>
-    </div>
-  <% end %>
 
 </div>

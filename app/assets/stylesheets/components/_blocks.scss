@@ -1,23 +1,31 @@
 .block {
-  background-color:     $light-gray;
-  box-shadow:           3px 3px 1px 0px $green;
-  padding:              16px;
-  margin:               16px;
+  background-color:   $light-gray;
+  box-shadow:         3px 3px 1px 0px $green;
+  padding:            16px;
+  margin:             16px;
 
   .form-control {
-    background-color:   $transparent;
-    padding:            0;
+    background-color: $transparent;
+    padding:          0;
   }
 }
 
 
 #decision_title, .title {
-  font-size:      large;
-  font-weight:    bold;
-  color:          $green;
+  font-size:          large;
+  font-weight:        bold;
+  color:              $green;
 }
 
 
-.new-campaign .form-control {
-  text-align: center;
+.new-campaign {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .form-control {
+    text-align:         center;
+  }
 }
