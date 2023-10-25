@@ -3,7 +3,10 @@
   margin:               16px;
   height:               50vh;
   overflow:             scroll;
-  position: relative;
+  position:             relative;
+  display:              flex;
+  flex-direction:       column;
+  justify-content:      space-between;
 }
 
 .comment {

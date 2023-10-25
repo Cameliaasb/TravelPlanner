@@ -7,7 +7,7 @@
         <%= render "comments/comment", todo: @todo, owner: @owner, comment: comment, path: todo_comment_path(@todo, comment) %>
       <% end %>
     </div>
-      <%= render "comments/form", parent: @todo, comment: @comment %>
+      <%= render "comments/form", parent: @todo, comment: @comment, placeholder: "New message concerning this topic" %>
     </div>
 
   </div>

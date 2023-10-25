@@ -12,10 +12,18 @@
 
         <div class="block">
           <%# Campaign description, editable by owner %>
-          <%= simple_form_for @campaign, data: { controller: "form", form_access_value: @owner } do |f| %>
-            <%= f.input     :description, label: false, disabled: !@owner, placeholder: "Add a description",
-                            input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}}
+          <%= simple_form_for @campaign, data: { controller: "form", form_access_value: @owner, action: "keyup->form#displayBtn" } do |f| %>
+            <%= f.input     :description, label: false, disabled: !@owner, as: :text,
+                            input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}, rows: 6 },
+                            placeholder:
+                            "Share with other participants your thoughts for the trip so they can join in the fun!
+Include relevant tags below."
                             %>
+            <div class="d-flex justify-content-end">
+              <%= button_tag(type: 'submit', class: "d-none btn p-0 pe-2 ", data: {form_target: "saveBtn"}) do %>
+                save <i class="fa-solid fa-check"></i>
+              <% end %>
+            </div>
           <% end %>
 
           <%# all tags %>
@@ -35,7 +43,7 @@
           <%= render "decisions/new_form", campaign: @campaign, decision: @decision %>
           <% if @expert %>
             <div class="d-flex justify-content-end">
-              <div data-action="click->toggle#toggle" class="btn btn-primary margin-x"> Add a new post </div>
+              <div data-action="click->toggle#toggle" class="btn btn-primary margin-x"> Add a Trip Information or Update </div>
             </div>
 
           <% end %>
@@ -47,7 +55,7 @@
             <%# all todos %>
             <%= render "todos/todos", todos: @campaign.todos, comment: @comment %>
             <%# new todo %>
-            <%= link_to "+", new_todo_path(campaign: @campaign.id), id:"new_todo_link", class:"text-decoration-none text-white" %>
+            <%= link_to "New topic +", new_todo_path(campaign: @campaign.id), id:"new_todo_link", class:"text-white" %>
           </div>
 
           <div class="comments">
@@ -59,7 +67,7 @@
             </div>
 
             <%# new comment %>
-            <%= render "comments/form", parent: @campaign, comment: @campaigncomment %>
+            <%= render "comments/form", parent: @campaign, comment: @campaigncomment, placeholder: "New message. Make sure it doesn't belong in a topic!" %>
           </div>
       </div>
 

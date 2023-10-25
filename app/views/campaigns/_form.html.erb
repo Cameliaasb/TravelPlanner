@@ -34,7 +34,7 @@
 
       <%# Only owner can delete campaign %>
       <% if owner %>
-        <%= link_to campaign_path(campaign), class:"text-decoration-none text-white mb-3",
+        <%= link_to campaign_path(campaign), class:"text-white mb-3",
             data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
           delete <i class="fa-solid fa-trash-can"> </i>
         <% end %>

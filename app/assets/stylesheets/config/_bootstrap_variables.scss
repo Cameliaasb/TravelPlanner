@@ -52,6 +52,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .form-control {
   border:             none !important;
+
+  &::placeholder {
+    color:             gray !important;
+  }
 }
 
 

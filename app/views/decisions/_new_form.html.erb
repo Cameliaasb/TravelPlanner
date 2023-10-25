@@ -1,8 +1,11 @@
 <div class="block d-none" data-toggle-target="form">
 
   <%= simple_form_for [campaign, decision] do |f| %>
-    <%= f.input :title, label: false, placeholder: "Enter title" %>
-    <%= f.input :content, label: false, placeholder: "Enter details" %>
+    <%= f.input :title, label: false, placeholder: "Enter update or info" %>
+    <%= f.input :content, label: false, as: :text, input_html: { rows: 5 },
+    placeholder: "Here you should include the important information and update you want to share about your upcoming trip.
+It should be relevant to all participants, such as the accommodation, or final route plans, etc."
+    %>
     <div class="d-flex justify-content-end">
       <%= button_tag(type: 'submit', class: "btn p-0 pe-2 ") do %>
         save <i class="fa-solid fa-check"></i>

@@ -10,7 +10,7 @@
 
 
 .tag, #new_tag, .todo, #new_todo_link {
-  max-width:         fit-content;
+  width:             fit-content;
   text-align:        center;
   display:           flex;
   justify-content:   space-between;
@@ -19,7 +19,6 @@
   border-radius:     $border-radius-sm;
 
   .form-control::placeholder, .form-control {
-    color:           $light-gray;
     width:           80px;
   }
 
@@ -29,13 +28,17 @@
 }
 
 
-#new_tag, .tag {
+#tag_title, #new_tag, .tag {
   color:            white !important;
-  padding:           0px 8px;
+  padding:           2px 8px;
 }
 
 #new_tag {
   background-color: $blue;
+
+  .form-control::placeholder {
+    color:          #95c0ce !important;
+  }
 }
 
 .tag {

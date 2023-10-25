@@ -38,7 +38,7 @@ class CampaignsController < ApplicationController
   def update
     @campaign = Campaign.find(params[:id])
     if @campaign.update(campaign_params)
-      redirect_to @campaign, notice: "Campaign was successfully updated."
+      redirect_to @campaign, notice: "Your trip was successfully updated."
     else
       redirect_to campaign_path(@campaign), notice: "Something went wrong, try again"
     end

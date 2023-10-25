@@ -10,7 +10,7 @@
 
     <% if @expert %>
       <div class="delete-btn">
-        <%= link_to campaign_decision_path(campaign, decision), data: { turbo_method: :delete }, class:"text-decoration-none mb-3" do %>
+        <%= link_to campaign_decision_path(campaign, decision), data: { turbo_method: :delete }, class:"mb-3" do %>
           <i class="fa-solid fa-trash-can"> </i>
         <% end  %>
       </div>
