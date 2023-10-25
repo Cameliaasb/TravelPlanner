@@ -32,7 +32,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     login_as @expert_user
     get todo_url(@todo)
 
-    assert_select ".todo-comment" do
+    assert_select ".comment" do
       assert_select ".delete-btn"
     end
   end
@@ -41,7 +41,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     login_as @novice_user
     get todo_url(@todo)
 
-    assert_select ".todo-comment" do
+    assert_select ".comment" do
       assert_select ".delete-btn", count: 0
     end
   end
