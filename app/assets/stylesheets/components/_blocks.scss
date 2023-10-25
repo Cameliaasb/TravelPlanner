@@ -19,13 +19,14 @@
 
 
 .new-campaign {
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  display:            flex;
+  flex-direction:     column;
+  justify-content:    space-evenly;
+  align-items:        center;
 
   .form-control {
-    text-align:         center;
+    text-align:       center;
+    background-color: white;
+    padding:           2px 4px;
   }
 }
