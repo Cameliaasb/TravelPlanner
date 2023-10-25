@@ -22,3 +22,28 @@
     flex-basis:     42%;
   }
 }
+
+
+.navbar-travel {
+  justify-content: space-between;
+  background:    white;
+
+  .navbar-collapse {
+   flex-grow:      0;
+  }
+
+  .avatar {
+    width:         50px;
+    height:        50px;
+    border-radius: 50%;
+  }
+}
+
+
+// in todo show
+.return-btn {
+  color:      white;
+  padding:      8px;
+  width:        40px;
+  height:       40px;
+}
