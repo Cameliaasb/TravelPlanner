@@ -1,8 +1,10 @@
 .header {
   width:              100%;
-  height:             fit-content;
-  background-color:   $main-color;
+  height:             200px;
+  // background-color:   $main-color;
   padding:            18px 32px;
+  background-size: cover;
+  background-position: center;
 
   .header-layout{
     display:          flex;

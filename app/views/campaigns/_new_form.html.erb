@@ -1,6 +1,7 @@
 <%= simple_form_for campaign do |f| %>
 
   <%= f.input   :title, label: false, placeholder:"Add a title", class:"title" %>
+  <%= f.input   :photo, as: :file %>
   <%= f.button  :submit, value:"New trip to plan", class:"btn-primary" %>
 
 <% end %>
