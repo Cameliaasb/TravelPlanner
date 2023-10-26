@@ -11,11 +11,11 @@
       >
 
       <%# Owner can edit and delete campaign, otherwise it's readonly %>
-      <%= render "campaigns/form", campaign: @campaign, owner: @owner %>
+      <%= render "campaigns/form", campaign: @campaign, owner: @owner, membership: @active_membership %>
   </div>
 
   <div class="container top-padding">
-    <% if @is_member %>
+    <% if @member %>
       <%= render "campaigns/show_content" %>
     <% else %>
       <%= render "memberships/new_member" %>

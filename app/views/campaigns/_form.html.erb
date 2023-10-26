@@ -39,6 +39,11 @@
             data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
           delete <i class="fa-solid fa-trash-can"> </i>
         <% end %>
+      <% elsif @member %>
+        <%= link_to campaign_membership_path(campaign, membership), class:"text-white mb-3",
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        I won't be part of this trip <i class="fa-solid fa-trash-can"> </i>
+        <%end %>
       <% end %>
 
     </div>

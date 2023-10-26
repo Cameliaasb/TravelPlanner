@@ -6,6 +6,7 @@
     </div>
   </div>
 
-  <div class="btn btn-primary"> I want to join this trip! </div>
-
+  <%= simple_form_for [@campaign, @membership] do |f| %>
+    <%= f.button :submit, value: "Join this trip", class:"btn-primary" %>
+  <% end %>
 </div>

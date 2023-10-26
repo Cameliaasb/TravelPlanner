@@ -1,5 +1,6 @@
 class CampaignsController < ApplicationController
   before_action :authenticate_user!
+  # before_action :user_is_member?, only: :show
 
   def index
     # Only logged users can see the index because they only have access to trips where they are members
@@ -11,15 +12,21 @@ class CampaignsController < ApplicationController
     # Only logged users can see the details (handled by Devise before_action)
     @campaign = Campaign.find(params[:id])
 
-    @campaigncomment = Campaigncomment.new
-    @decision = Decision.new
-
-    # Used in view to give access to owner only for : edit campaign / add or delete tag
+    # ACCESS
+    ## Only members can interact with the show, non-members can ask for access
+    @active_membership = Membership.where(trip: @campaign, member: current_user)
+    @member = @active_membership.any?
+    ## Owner can : edit campaign / add or delete tag
     @owner = owner?(@campaign)
     @tag = Tag.new
 
-    # Used in view to give access to experts only for : create, edit or delete decisions
+    ## Experts can create, edit or delete decisions
     @expert = expert?
+
+    # New forms
+    @campaigncomment = Campaigncomment.new
+    @decision = Decision.new
+    @membership = Membership.new
   end
 
   def create
@@ -52,6 +59,12 @@ class CampaignsController < ApplicationController
 
   private
 
+  # def user_is_member?
+  #   @campaign = Campaign.find(params[:id])
+  #   membership = Membership.where(trip: @campaign, member: current_user)
+  #   redirect_to campaigns_path if membership.empty?
+  # end
+
   def upgrade_status(user)
     experience = user.campaigns.count
     if experience > 10
@@ -67,6 +80,7 @@ class CampaignsController < ApplicationController
 
   def owner_is_member(campaign, user)
     Membership.create(trip: campaign, member: user)
+
   end
 
   def expert?
