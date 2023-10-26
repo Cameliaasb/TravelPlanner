@@ -3,8 +3,8 @@ require "test_helper"
 class DecisionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @campaign_tata = campaigns(:campaign_tata)
-    @expert = users(:toto)
-    @novice = users(:test)
+    @expert = users(:toto) # toto is a member in campaign_tata
+    @novice = users(:titi) # test is a member in campaign_tata
   end
 
   test "should get all decisions of particular campaign" do

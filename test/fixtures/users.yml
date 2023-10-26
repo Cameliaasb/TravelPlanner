@@ -16,3 +16,8 @@ tata:
   encrypted_password: azerty
   type: "Expert"
   status: "master"
+
+titi:
+  username: "Titi"
+  email: titi@mail.com
+  encrypted_password: azerty

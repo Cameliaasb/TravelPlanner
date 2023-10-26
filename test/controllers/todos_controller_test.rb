@@ -31,7 +31,7 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "Only campaign owner can delete a todo" do
-    login_as users(:tata)
+    login_as users(:test) # test is a member in the campaign but not the owner
     get campaign_url(@campaign_toto)
     assert_select ".todo" do
       assert_select ".delete-btn", count: 0

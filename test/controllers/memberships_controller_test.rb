@@ -32,7 +32,6 @@ class MembershipsControllerTest < ActionDispatch::IntegrationTest
     login_as @expert
     get campaign_url(@campaign_tata)
     assert_response :success
-    # to make sure it includes the delete btn for experts
     assert_select ".tags"
     assert_select ".decisions"
     assert_select ".comments"
@@ -43,11 +42,10 @@ class MembershipsControllerTest < ActionDispatch::IntegrationTest
     login_as @novice
     get campaign_url(@campaign_tata)
     assert_response :success
-    # to make sure it includes the delete btn for experts
     assert_select ".tags"
-    assert_empty ".decisions"
-    assert_empty ".comments"
-    assert_empty ".todos"
+    assert_equal css_select(".decisions").count, 0
+    assert_equal css_select(".comments").count, 0
+    assert_equal css_select(".todos").count, 0
   end
 
 

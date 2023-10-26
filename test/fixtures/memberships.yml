@@ -7,3 +7,6 @@ member_two:
 member_three:
   member: test
   trip: campaign_toto
+member_four:
+  member: titi
+  trip: campaign_tata

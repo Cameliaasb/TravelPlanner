@@ -1,0 +1,66 @@
+<div class="row">
+
+  <div class="col">
+
+    <div class="block">
+      <%# Campaign description, editable by owner %>
+      <%= simple_form_for @campaign, data: { controller: "form", form_access_value: @owner, action: "keyup->form#displayBtn" } do |f| %>
+        <%= f.input     :description, label: false, disabled: !@owner, as: :text,
+                        input_html: { data: {form_target:"input", action:"keyup->form#display_btn"}, rows: 6 },
+                        placeholder:
+                        "Share with other participants your thoughts for the trip so they can join in the fun!
+Include relevant tags below."
+                        %>
+        <div class="d-flex justify-content-end">
+          <%= button_tag(type: 'submit', class: "d-none btn p-0 pe-2 ", data: {form_target: "saveBtn"}) do %>
+            save <i class="fa-solid fa-check"></i>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%# all tags %>
+      <div class="tags">
+        <%= render "tags/tags", tags: @campaign.tags, campaign: @campaign %>
+        <%# new tag only by owner %>
+        <%= render "tags/new_form", campaign: @campaign, tag: @tag if @owner%>
+      </div>
+    </div>
+
+
+    <div class="decisions" data-controller="toggle">
+      <%# all decisions are editable by experts %>
+      <%= render "decisions/decisions", decisions: @campaign.decisions, campaign: @campaign, access: @expert %>
+
+      <%# new decision %>
+      <%= render "decisions/new_form", campaign: @campaign, decision: @decision %>
+      <% if @expert %>
+        <div class="d-flex justify-content-end">
+          <div data-action="click->toggle#toggle" class="btn btn-primary margin-x"> Add a Trip Information or Update </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col">
+      <div class="todos">
+        <%# all todos %>
+        <%= render "todos/todos", todos: @campaign.todos, comment: @comment %>
+        <%# new todo %>
+        <%= link_to "New topic +", new_todo_path(campaign: @campaign.id), id:"new_todo_link", class:"text-white" %>
+      </div>
+
+      <div class="comments">
+        <%# all comments %>
+        <div data-chatroom-target="comments">
+          <%  @campaign.campaigncomments.each do |comment| %>
+            <%= render "comments/comment", comment: comment, campaign: @campaign, path: campaign_campaigncomment_path(@campaign, comment)   %>
+          <% end %>
+        </div>
+
+        <%# new comment %>
+        <%= render "comments/form", parent: @campaign, comment: @campaigncomment, placeholder: "New message. Make sure it doesn't belong in a topic!" %>
+      </div>
+  </div>
+
+</div>

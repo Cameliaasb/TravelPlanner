@@ -1,0 +1,11 @@
+<div class="text-center">
+  <div class="block">
+    <%= @campaign.description %>
+    <div class="tags">
+      <%= render "tags/tags", tags: @campaign.tags, campaign: @campaign %>
+    </div>
+  </div>
+
+  <div class="btn btn-primary"> I want to join this trip! </div>
+
+</div>
