@@ -1,4 +1,4 @@
-.tags, .todos {
+.tags, .todos, .members {
   display:          flex;
   flex-wrap:        wrap;
   gap:              1rem;
@@ -9,7 +9,7 @@
 }
 
 
-.tag, #new_tag, .todo, #new_todo_link {
+.tag, #new_tag, .todo, #new_todo_link, .member {
   width:             fit-content;
   text-align:        center;
   display:           flex;
@@ -45,9 +45,18 @@
   background-color: $green;
 }
 
+.member {
+  background-color: $red;
+  padding:          4px 10px;
+  color:          white;
+  font-weight:      bold;
+  max-height:       50vh;
+  overflow:         scroll;
+}
+
 
 .todo, #new_todo_link {
-  box-shadow:       3px 3px 1px 0px $red;
+  box-shadow:       3px 3px 1px 0px $bold-color;
   padding:          4px 10px;
 }
 
@@ -60,7 +69,7 @@
 }
 
 #new_todo_link {
-  background-color:   $red;
+  background-color:   $bold-color;
 
   .form-control {
     background-color: $transparent;

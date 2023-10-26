@@ -1,0 +1,9 @@
+<div class="title"> Members (<%= campaign.members.count %>) </div>
+
+<div class="members">
+  <% campaign.members.each do |member| %>
+    <div class="member">
+      <%= member.username  %>
+    </div>
+  <% end%>
+</div>

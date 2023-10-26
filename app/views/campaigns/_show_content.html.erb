@@ -18,6 +18,7 @@ Include relevant tags below."
         </div>
       <% end %>
 
+
       <%# all tags %>
       <div class="tags">
         <%= render "tags/tags", tags: @campaign.tags, campaign: @campaign %>
@@ -26,6 +27,10 @@ Include relevant tags below."
       </div>
     </div>
 
+      <%# All members  %>
+      <div class="block">
+        <%= render "memberships/members", campaign: @campaign %>
+      </div>
 
     <div class="decisions" data-controller="toggle">
       <%# all decisions are editable by experts %>
