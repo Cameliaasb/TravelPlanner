@@ -13,7 +13,7 @@
       <%= render "campaigns/form", campaign: @todo.campaign, owner: @owner %>
   </div>
   <div class="todo-title">
-    <%= link_to(:back, class:"return-btn") do %>
+    <%= link_to(campaign_path(@todo.campaign), class:"return-btn") do %>
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
     <%= @todo.content %>

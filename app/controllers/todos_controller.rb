@@ -22,6 +22,17 @@ class TodosController < ApplicationController
     end
   end
 
+  def update
+    @todo = Todo.find(params[:id])
+    @todo.update(todo_params)
+    if @todo.save
+      redirect_to @todo, notice: "Topic updated"
+    else
+      redirect_to @todo, alert: "The description cannot be blank"
+    end
+  end
+
+
   def destroy
     ## Link is in campaigns#show, giving access to campaign owner only
     @todo = Todo.find(params[:id])

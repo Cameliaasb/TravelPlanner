@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :todos, only: %i[show new create destroy] do
+  resources :todos, only: %i[show new create update destroy] do
     resources :comments, only: %i[create destroy]
   end
 end
