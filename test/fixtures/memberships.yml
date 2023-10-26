@@ -4,3 +4,6 @@ member_one:
 member_two:
   member: toto
   trip: campaign_toto
+member_three:
+  member: test
+  trip: campaign_toto
