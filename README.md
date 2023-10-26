@@ -1,5 +1,5 @@
 ## Work in progress
-TravelPlanner is a work in progress, and certain features, especially the front-end are not be implemented yet.
+TravelPlanner is a work in progress, and certain features are not implemented yet.
 
 ------
 
@@ -8,15 +8,15 @@ TravelPlanner is a Ruby on Rails application designed to help users plan their t
  It allows expert users to create campaigns to plan their adventures and share their ideas with others. Whether you're planning a weekend getaway or an extended vacation, TravelPlanner is the perfect tool to organize your trips.
 
 ### Features
--**Campaign Creation:** Expert users can create campaigns to plan their trips.
+-**Campaign Creation:** Expert users can create campaigns to plan their trips. Other users can join a trip after the link is shared with them, making it easy to involve friends and fellow travelers.
 
--**Tagging:** Users can tag their campaigns, making it easy to categorize and find specific trips. For example, you can add tags like "surf" to indicate the type of activities you plan to do during the trip.
+-**Description and Tagging:** Users can tag their campaigns, making it easy to categorize and find specific trips. For example, you can add tags like "surf" to indicate the type of activities you plan to do during the trip.
 
--**To-Do Lists:** Each campaign has a to-do list where you can add tasks and items related to the trip. This feature helps you organize your tasks and ensure nothing is forgotten.
+-**Information and Updates** Expert members of the trip can publish news updates to keep everyone informed of important informations.
 
--**Comments:** Campaigns have comment sections where users can discuss and share their thoughts about the trip plan.
+-**Main chatroom:** Campaigns have a chatroom where users can discuss and share their thoughts about the trip plan. Only the owner of a campaign can regulate the chat.
 
--**Ownership Control:** Only the owner of a campaign can regulate comments.
+-**To-Do Lists / Topics:** Each campaign has open topics - such as housing, co-driving, etc - created by its members. Each topic has its dedicated chatroom and a list of tasks (WIP). This feature helps members organize tasks and ensure nothing is forgotten.
 
 
 ### Database
