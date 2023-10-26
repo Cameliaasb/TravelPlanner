@@ -35,7 +35,7 @@ rails test
 This will execute all the tests and provide you with feedback on the status of the application's functionality.
 
 
-### Screenshots
+## Screenshots
 
 #### Expert user can create a trip (campaign) from scratch
 ![screenshot](app/assets/images/screenshots/empty_show.png?raw=true "Empty show screenshot")
@@ -48,5 +48,5 @@ This will execute all the tests and provide you with feedback on the status of t
 ![screenshot](app/assets/images/screenshots/show.png?raw=true "Database screenshot")
 
 #### Example of topic
-![screenshot](app/assets/images/screenshots/DB.png?raw=true "Database screenshot")
+![screenshot](app/assets/images/screenshots/topic.png?raw=true "Database screenshot")
 Tasks haven't been added yet
